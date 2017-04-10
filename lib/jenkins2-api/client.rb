@@ -1,6 +1,11 @@
 require 'net/http'
 require 'json'
 
+require_relative './endpoints/artifact'
+require_relative './endpoints/build'
+require_relative './endpoints/job'
+require_relative './endpoints/node'
+
 module Jenkins2API
   class Client
     def initialize(**options)
@@ -13,34 +18,22 @@ module Jenkins2API
       end
     end
 
-    def latest_build_for(name)
-      api_request(:get, "/job/#{name}/lastBuild")
+    def job
+      @job ||= Job.new(self)
     end
 
-    def list_jobs
-      api_request(:get, "")['jobs']
+    def build
+      @build ||= Build.new(self)
     end
 
-    def nodes
-      api_request(:get, "/computer")
+    def artifact
+      @artifact ||= Artifact.new(self)
     end
 
-    def get_full_log_lines(name, build_id)
-      api_request(:get, "/job/#{name}/#{build_id}/logText/progressiveText", :raw).split("\r\n")
+    def node
+      @node ||= Node.new(self)
     end
 
-    def get_artifact_for(name, build_id, artifact)
-      api_request(:get, "/job/#{name}/#{build_id}/artifact/#{artifact['relativePath']}", :raw)
-    end
-
-    def get_build_slave_name(name, build_id)
-      log = get_full_log_lines(name, build_id)
-      relevant_line = log.select { |line| line.match(/^Running on /) }.first
-
-      relevant_line.match(/^Running on (.*) in \//)[1]
-    end
-
-    private
     def api_request(method, path, response_type = :json, **opts)
       response_type = :json unless [:json, :raw].include?(response_type)
 

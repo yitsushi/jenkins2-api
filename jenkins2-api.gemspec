@@ -14,7 +14,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '~> 2.0'
 
-  s.files = Dir['CHANGELOG.md', 'LICENSE', 'README.md', 'lib/**/*']
+  s.files = Dir['CHANGELOG.md', 'LICENSE', 'README.md', 'lib/**/*.rb']
+
   s.require_path = 'lib'
 end
 
