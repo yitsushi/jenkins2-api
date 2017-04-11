@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'jenkins2-api'
+
+module Jenkins2API
+  module CLI
+    class Jenkins2 < Thor
+      class_option :password, :desc => "Password", :aliases => "-p", :required => true
+      class_option :username, :desc => "Username", :aliases => "-u", :required => true
+      class_option :server, :desc => "Server path", :aliases => "-s", :required => true
+
+      map %w[--version -v] => :__print_version
+
+      desc "--version, -v", "print the version"
+      def __print_version
+        puts Jenkins2API::VERSION
+      end
+
+      register(Jenkins2API::Command::Job, 'job', 'job <command>', 'Job related commands')
+      register(Jenkins2API::Command::Build, 'build', 'build <command>', 'Build related commands')
+      register(Jenkins2API::Command::Node, 'node', 'node <command>', 'Node related commands')
+    end
+  end
+end
+
+Jenkins2API::CLI::Jenkins2.start

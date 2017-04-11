@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
-require_relative 'lib/jenkins2-api/version'
+require_relative 'lib/version'
 
 Gem::Specification.new do |s|
   s.name = 'jenkins2-api'
@@ -15,7 +15,10 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '~> 2.0'
 
   s.files = Dir['CHANGELOG.md', 'LICENSE', 'README.md', 'lib/**/*.rb']
+  s.executables = ['jenkins2api']
 
   s.require_path = 'lib'
+
+  s.add_dependency 'thor', '~> 0.19'
 end
 
