@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version = Jenkins2API::VERSION
   s.date = '2017-04-06'
   s.summary = 'API client for Jenkins 2.'
-  s.description = 'API client for Jenkins 2.'
+  s.description = 'API client for Jenkins 2 with executable'
   s.authors = ['Balazs Nadasdi']
   s.email = 'balazs.nadasdi@cheppers.com'
   s.homepage = 'https://github.com/Yitsushi/jenkins2-api'

@@ -6,10 +6,6 @@ require 'jenkins2-api'
 module Jenkins2API
   module CLI
     class Jenkins2 < Thor
-      class_option :password, :desc => "Password", :aliases => "-p", :required => true
-      class_option :username, :desc => "Username", :aliases => "-u", :required => true
-      class_option :server, :desc => "Server path", :aliases => "-s", :required => true
-
       map %w[--version -v] => :__print_version
 
       desc "--version, -v", "print the version"
