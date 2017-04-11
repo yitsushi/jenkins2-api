@@ -24,7 +24,14 @@ module Jenkins2API
       log = logtext_lines(name, build_id)
       relevant_line = log.select { |line| line.match(/^Running on /) }.first
 
-      relevant_line.match(/^Running on (.*) in \//)[1]
+      name = relevant_line.match(/^Running on (.*) in \//).captures.first rescue nil
+
+      if name.nil?
+        relevant_line = log.select { |line| line.match(/Building remotely on/) }.first
+        name = relevant_line.match(/Building remotely on (.*) in workspace/).captures.first
+      end
+
+      name
     end
   end
 end
