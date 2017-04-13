@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/jenkins2-api.svg)](https://badge.fury.io/rb/jenkins2-api)
+
 # API Client for Jenkins2
 
 ## Install

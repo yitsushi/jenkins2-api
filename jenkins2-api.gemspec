@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description = 'API client for Jenkins 2 with executable'
   s.authors = ['Balazs Nadasdi']
   s.email = 'balazs.nadasdi@cheppers.com'
-  s.homepage = 'https://github.com/Yitsushi/jenkins2-api'
+  s.homepage = 'https://yitsushi.github.io/jenkins2-api/'
   s.license = 'MIT'
 
   s.required_ruby_version = '~> 2.0'
