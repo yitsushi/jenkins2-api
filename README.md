@@ -51,6 +51,8 @@ jenkins2api build slave-name jobname buildid --ec2id
 
 ## Ruby side
 
+All response are a generic Jenkins response. There are no wrapper classes around them.
+
 Create a new client:
 
 ```
@@ -67,4 +69,54 @@ To list all the available jobs:
 
 ```
 jobs = client.job.list
+jobs.each do |job|
+  puts "[%10s] #{job['name']}" % [job['color']]
+end
+```
+
+List all node:
+
+```
+nodes = client.node.all
+puts "Total Executors: #{nodes['totalExecutors']}"
+puts "Busy Executors: #{nodes['busyExecutors']}"
+
+puts "Executors:"
+nodes['computer'].each do |computer|
+  type = 'slave'
+  type = 'master' if computer['_class'] == 'hudson.model.Hudson$MasterComputer'
+  puts "  [%7s] #{computer['displayName']}" % [type]
+end
+```
+
+Get a specific job's latest build information:
+
+```
+build = client.build.latest('my-job')
+
+puts "Latest build: #{build['id']}"
+puts "Result: #{build['result']}"
+puts "URL: #{build['url']}"
+logfiles = build['artifacts'].select { |artifact| artifact['fileName'].match(/.*\.xml$/) }
+
+slave_name = client.build.slave_name('my-job', build['id'])
+
+puts "Build on: #{slave_name}"
+```
+
+Process junit reports:
+
+```
+failed_tests = []
+logfiles.each do |file|
+  results = Nokogiri::XML(client.artifact.get('my-job', build['id'], file))
+  failed_tests += results.xpath('//testcase').select do |testcase|
+    !testcase.children.empty?
+  end
+end
+
+puts "Failed tests:" unless failed_tests.empty?
+failed_tests.each do |failed|
+  puts "  [✘] #{failed['name']} on #{failed['classname']}"
+end
 ```
