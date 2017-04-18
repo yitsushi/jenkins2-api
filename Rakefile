@@ -1,6 +1,7 @@
 require 'rubygems/package_task'
 require 'rubygems/dependency_installer'
 require 'rdoc/task'
+require 'rspec/core/rake_task'
 
 namespace :gem do
   specfile = 'jenkins2-api.gemspec'
@@ -46,3 +47,6 @@ namespace :doc do
     rd.options << '--diagram'
   end
 end
+
+RSpec::Core::RakeTask.new(:spec)
+task :default => :spec
