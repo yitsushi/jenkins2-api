@@ -4,17 +4,17 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Jenkins2API::Node - RDoc Documentation</title>
+<title>class Jenkins2API::Endpoint::BaseEndpoint - RDoc Documentation</title>
 
 <script type="text/javascript">
-  var rdoc_rel_prefix = "../";
+  var rdoc_rel_prefix = "../../";
 </script>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/darkfish.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
 
-<link href="../css/fonts.css" rel="stylesheet">
-<link href="../css/rdoc.css" rel="stylesheet">
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
 
 
 
@@ -23,13 +23,13 @@
   <div id="project-navigation">
     <div id="home-section" role="region" title="Quick navigation" class="nav-section">
   <h2>
-    <a href="../index.html" rel="home">Home</a>
+    <a href="../../index.html" rel="home">Home</a>
   </h2>
 
   <div id="table-of-contents-navigation">
-    <a href="../table_of_contents.html#pages">Pages</a>
-    <a href="../table_of_contents.html#classes">Classes</a>
-    <a href="../table_of_contents.html#methods">Methods</a>
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
   </div>
 </div>
 
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link"><a href="Endpoint.html">Jenkins2API::Endpoint</a>
+  <p class="link">Object
   
 </div>
 
@@ -70,7 +70,7 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-i-all">#all</a>
+    <li ><a href="#method-c-new">::new</a>
     
   </ul>
 </div>
@@ -78,18 +78,14 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Jenkins2API::Node">
-  <h1 id="class-Jenkins2API::Node" class="class">
-    class Jenkins2API::Node
+<main role="main" aria-labelledby="class-Jenkins2API::Endpoint::BaseEndpoint">
+  <h1 id="class-Jenkins2API::Endpoint::BaseEndpoint" class="class">
+    class Jenkins2API::Endpoint::BaseEndpoint
   </h1>
 
   <section class="description">
     
-<p>This class contains all the calls to reach Jenkins2 and obtain Computer
-data</p>
-
-<p>This class contains all the calls to reach Jenkins2 and obtain Computer
-data</p>
+<p>General methods for endpoints</p>
 
   </section>
 
@@ -106,17 +102,17 @@ data</p>
     
 
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
-         <h3>Public Instance Methods</h3>
+         <h3>Public Class Methods</h3>
        </header>
 
     
-      <div id="method-i-all" class="method-detail ">
+      <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">all</span><span
-            class="method-args">()</span>
+          <span class="method-name">new</span><span
+            class="method-args">(client)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -125,17 +121,15 @@ data</p>
 
         <div class="method-description">
           
-          <p>List all available Computer</p>
-
-<p>Returns with slaves and masters also</p>
+          <p>Stores the <a href="../Client.html">Jenkins2API::Client</a> instance</p>
           
           
 
           
-          <div class="method-source-code" id="all-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/node.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&quot;/computer&quot;</span>)
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/endpoints/base_endpoint.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
+  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

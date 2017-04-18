@@ -45,21 +45,6 @@
     <li class="file">
     <a href="jenkins2-api_gemspec.html">jenkins2-api.gemspec</a>
   </li>
-    <li class="file">
-    <a href="pkg/jenkins2-api-1_0_1/LICENSE.html">LICENSE</a>
-  </li>
-    <li class="file">
-    <a href="pkg/jenkins2-api-1_0_1/README_md.html">README</a>
-
-    <ul>
-      <li><a href="pkg/jenkins2-api-1_0_1/README_md.html#label-API+Client+for+Jenkins2">API Client for Jenkins2</a>
-      <li><a href="pkg/jenkins2-api-1_0_1/README_md.html#label-Install">Install</a>
-      <li><a href="pkg/jenkins2-api-1_0_1/README_md.html#label-Executable">Executable</a>
-      <li><a href="pkg/jenkins2-api-1_0_1/README_md.html#label-List+computers+-2F+nodes">List computers / nodes</a>
-      <li><a href="pkg/jenkins2-api-1_0_1/README_md.html#label-Get+the+name+of+the+slave+where+a+build+was+executed">Get the name of the slave where a build was executed</a>
-      <li><a href="pkg/jenkins2-api-1_0_1/README_md.html#label-Ruby+side">Ruby side</a>
-    </ul>
-  </li>
   
 </ul>
 
@@ -67,12 +52,6 @@
 <ul>
   <li class="module">
     <a href="Jenkins2API.html">Jenkins2API</a>
-  </li>
-  <li class="class">
-    <a href="Jenkins2API/Artifact.html">Jenkins2API::Artifact</a>
-  </li>
-  <li class="class">
-    <a href="Jenkins2API/Build.html">Jenkins2API::Build</a>
   </li>
   <li class="module">
     <a href="Jenkins2API/CLI.html">Jenkins2API::CLI</a>
@@ -95,14 +74,23 @@
   <li class="class">
     <a href="Jenkins2API/Command/Node.html">Jenkins2API::Command::Node</a>
   </li>
-  <li class="class">
+  <li class="module">
     <a href="Jenkins2API/Endpoint.html">Jenkins2API::Endpoint</a>
   </li>
   <li class="class">
-    <a href="Jenkins2API/Job.html">Jenkins2API::Job</a>
+    <a href="Jenkins2API/Endpoint/Artifact.html">Jenkins2API::Endpoint::Artifact</a>
   </li>
   <li class="class">
-    <a href="Jenkins2API/Node.html">Jenkins2API::Node</a>
+    <a href="Jenkins2API/Endpoint/BaseEndpoint.html">Jenkins2API::Endpoint::BaseEndpoint</a>
+  </li>
+  <li class="class">
+    <a href="Jenkins2API/Endpoint/Build.html">Jenkins2API::Endpoint::Build</a>
+  </li>
+  <li class="class">
+    <a href="Jenkins2API/Endpoint/Job.html">Jenkins2API::Endpoint::Job</a>
+  </li>
+  <li class="class">
+    <a href="Jenkins2API/Endpoint/Node.html">Jenkins2API::Endpoint::Node</a>
   </li>
   <li class="class">
     <a href="Jenkins2API/ThorCommand.html">Jenkins2API::ThorCommand</a>
@@ -113,9 +101,9 @@
 <ul>
 
   <li class="method">
-    <a href="Jenkins2API/Endpoint.html#method-c-new">::new</a>
+    <a href="Jenkins2API/Endpoint/BaseEndpoint.html#method-c-new">::new</a>
     &mdash;
-    <span class="container">Jenkins2API::Endpoint</span>
+    <span class="container">Jenkins2API::Endpoint::BaseEndpoint</span>
 
   <li class="method">
     <a href="Jenkins2API/Client.html#method-c-new">::new</a>
@@ -128,19 +116,19 @@
     <span class="container">Jenkins2API::CLI::Jenkins2</span>
 
   <li class="method">
+    <a href="Jenkins2API/Endpoint/Node.html#method-i-all">#all</a>
+    &mdash;
+    <span class="container">Jenkins2API::Endpoint::Node</span>
+
+  <li class="method">
     <a href="Jenkins2API/Command/Node.html#method-i-all">#all</a>
     &mdash;
     <span class="container">Jenkins2API::Command::Node</span>
 
   <li class="method">
-    <a href="Jenkins2API/Node.html#method-i-all">#all</a>
+    <a href="Jenkins2API/Endpoint/Artifact.html#method-i-all">#all</a>
     &mdash;
-    <span class="container">Jenkins2API::Node</span>
-
-  <li class="method">
-    <a href="Jenkins2API/Artifact.html#method-i-all">#all</a>
-    &mdash;
-    <span class="container">Jenkins2API::Artifact</span>
+    <span class="container">Jenkins2API::Endpoint::Artifact</span>
 
   <li class="method">
     <a href="Jenkins2API/Client.html#method-i-api_request">#api_request</a>
@@ -158,19 +146,19 @@
     <span class="container">Jenkins2API::Client</span>
 
   <li class="method">
-    <a href="Jenkins2API/Job.html#method-i-builds">#builds</a>
+    <a href="Jenkins2API/Endpoint/Job.html#method-i-builds">#builds</a>
     &mdash;
-    <span class="container">Jenkins2API::Job</span>
+    <span class="container">Jenkins2API::Endpoint::Job</span>
 
   <li class="method">
-    <a href="Jenkins2API/Build.html#method-i-get">#get</a>
+    <a href="Jenkins2API/Endpoint/Build.html#method-i-get">#get</a>
     &mdash;
-    <span class="container">Jenkins2API::Build</span>
+    <span class="container">Jenkins2API::Endpoint::Build</span>
 
   <li class="method">
-    <a href="Jenkins2API/Artifact.html#method-i-get">#get</a>
+    <a href="Jenkins2API/Endpoint/Artifact.html#method-i-get">#get</a>
     &mdash;
-    <span class="container">Jenkins2API::Artifact</span>
+    <span class="container">Jenkins2API::Endpoint::Artifact</span>
 
   <li class="method">
     <a href="Jenkins2API/Client.html#method-i-job">#job</a>
@@ -178,19 +166,19 @@
     <span class="container">Jenkins2API::Client</span>
 
   <li class="method">
-    <a href="Jenkins2API/Build.html#method-i-latest">#latest</a>
+    <a href="Jenkins2API/Endpoint/Build.html#method-i-latest">#latest</a>
     &mdash;
-    <span class="container">Jenkins2API::Build</span>
+    <span class="container">Jenkins2API::Endpoint::Build</span>
 
   <li class="method">
-    <a href="Jenkins2API/Job.html#method-i-list">#list</a>
+    <a href="Jenkins2API/Endpoint/Job.html#method-i-list">#list</a>
     &mdash;
-    <span class="container">Jenkins2API::Job</span>
+    <span class="container">Jenkins2API::Endpoint::Job</span>
 
   <li class="method">
-    <a href="Jenkins2API/Build.html#method-i-logtext_lines">#logtext_lines</a>
+    <a href="Jenkins2API/Endpoint/Build.html#method-i-logtext_lines">#logtext_lines</a>
     &mdash;
-    <span class="container">Jenkins2API::Build</span>
+    <span class="container">Jenkins2API::Endpoint::Build</span>
 
   <li class="method">
     <a href="Jenkins2API/Client.html#method-i-node">#node</a>
@@ -198,14 +186,14 @@
     <span class="container">Jenkins2API::Client</span>
 
   <li class="method">
+    <a href="Jenkins2API/Endpoint/Build.html#method-i-slave_name">#slave_name</a>
+    &mdash;
+    <span class="container">Jenkins2API::Endpoint::Build</span>
+
+  <li class="method">
     <a href="Jenkins2API/Command/Build.html#method-i-slave_name">#slave_name</a>
     &mdash;
     <span class="container">Jenkins2API::Command::Build</span>
-
-  <li class="method">
-    <a href="Jenkins2API/Build.html#method-i-slave_name">#slave_name</a>
-    &mdash;
-    <span class="container">Jenkins2API::Build</span>
 
   <li class="method">
     <a href="Jenkins2API/Command/Node.html#method-i-slaves">#slaves</a>
@@ -213,9 +201,9 @@
     <span class="container">Jenkins2API::Command::Node</span>
 
   <li class="method">
-    <a href="Jenkins2API/Build.html#method-i-test_results">#test_results</a>
+    <a href="Jenkins2API/Endpoint/Build.html#method-i-test_results">#test_results</a>
     &mdash;
-    <span class="container">Jenkins2API::Build</span>
+    <span class="container">Jenkins2API::Endpoint::Build</span>
 </ul>
 </main>
 

@@ -97,8 +97,6 @@
     
 <p>Basically the only public class to call Jenkins2 API nedpoints</p>
 
-<p>Basically the only public class to call Jenkins2 API nedpoints</p>
-
   </section>
 
   
@@ -274,8 +272,8 @@ is empty</p>
 
         <div class="method-description">
           
-          <p><a href="Artifact.html">Artifact</a> related endpoints. Creates new
-<code>Jenkins2API::Artifact</code> instance</p>
+          <p>Artifact related endpoints. Creates new
+<code>Jenkins2API::Endpoint::Artifact</code> instance</p>
           
           
 
@@ -283,7 +281,7 @@ is empty</p>
           <div class="method-source-code" id="artifact-source">
             <pre><span class="ruby-comment"># File lib/client.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">artifact</span>
-  <span class="ruby-ivar">@artifact</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Artifact</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@artifact</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Artifact</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -308,8 +306,8 @@ is empty</p>
 
         <div class="method-description">
           
-          <p><a href="Build.html">Build</a> related endpoints. Creates new
-<code>Jenkins2API::Build</code> instance</p>
+          <p>Build related endpoints. Creates new
+<code>Jenkins2API::Endpoint::Build</code> instance</p>
           
           
 
@@ -317,7 +315,7 @@ is empty</p>
           <div class="method-source-code" id="build-source">
             <pre><span class="ruby-comment"># File lib/client.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">build</span>
-  <span class="ruby-ivar">@build</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Build</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@build</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -342,8 +340,8 @@ is empty</p>
 
         <div class="method-description">
           
-          <p><a href="Job.html">Job</a> related endpoints. Creates new
-<code>Jenkins2API::Job</code> instance</p>
+          <p>Job related endpoints. Creates new <code>Jenkins2API::Endpoint::Job</code>
+instance</p>
           
           
 
@@ -351,7 +349,7 @@ is empty</p>
           <div class="method-source-code" id="job-source">
             <pre><span class="ruby-comment"># File lib/client.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">job</span>
-  <span class="ruby-ivar">@job</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Job</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@job</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Job</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -376,8 +374,8 @@ is empty</p>
 
         <div class="method-description">
           
-          <p>Node/Computer related endpoints. Creates new <code>Jenkins2API::Node</code>
-instance</p>
+          <p>Node/Computer related endpoints. Creates new
+<code>Jenkins2API::Endpoint::Node</code> instance</p>
           
           
 
@@ -385,7 +383,7 @@ instance</p>
           <div class="method-source-code" id="node-source">
             <pre><span class="ruby-comment"># File lib/client.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">node</span>
-  <span class="ruby-ivar">@node</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@node</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

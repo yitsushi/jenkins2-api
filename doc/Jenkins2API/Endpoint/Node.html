@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Jenkins2API::Command::Job - RDoc Documentation</title>
+<title>class Jenkins2API::Endpoint::Node - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../../";
@@ -58,24 +58,35 @@
   <h3>Parent</h3>
 
   
-  <p class="link"><a href="../ThorCommand.html">Jenkins2API::ThorCommand</a>
+  <p class="link"><a href="BaseEndpoint.html">Jenkins2API::Endpoint::BaseEndpoint</a>
   
 </div>
 
     
     
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-all">#all</a>
+    
+  </ul>
+</div>
+
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Jenkins2API::Command::Job">
-  <h1 id="class-Jenkins2API::Command::Job" class="class">
-    class Jenkins2API::Command::Job
+<main role="main" aria-labelledby="class-Jenkins2API::Endpoint::Node">
+  <h1 id="class-Jenkins2API::Endpoint::Node" class="class">
+    class Jenkins2API::Endpoint::Node
   </h1>
 
   <section class="description">
     
-<p>Contains all the commands under <code>job</code> namespace</p>
+<p>This class contains all the calls to reach Jenkins2 and obtain Computer
+data</p>
 
   </section>
 
@@ -92,6 +103,49 @@
     
 
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all available Computer</p>
+
+<p>Returns with slaves and masters also</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File lib/endpoints/node.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&quot;/computer&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
   </section>
 </main>
 

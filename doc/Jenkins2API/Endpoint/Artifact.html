@@ -4,17 +4,17 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Jenkins2API::Artifact - RDoc Documentation</title>
+<title>class Jenkins2API::Endpoint::Artifact - RDoc Documentation</title>
 
 <script type="text/javascript">
-  var rdoc_rel_prefix = "../";
+  var rdoc_rel_prefix = "../../";
 </script>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/darkfish.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
 
-<link href="../css/fonts.css" rel="stylesheet">
-<link href="../css/rdoc.css" rel="stylesheet">
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
 
 
 
@@ -23,13 +23,13 @@
   <div id="project-navigation">
     <div id="home-section" role="region" title="Quick navigation" class="nav-section">
   <h2>
-    <a href="../index.html" rel="home">Home</a>
+    <a href="../../index.html" rel="home">Home</a>
   </h2>
 
   <div id="table-of-contents-navigation">
-    <a href="../table_of_contents.html#pages">Pages</a>
-    <a href="../table_of_contents.html#classes">Classes</a>
-    <a href="../table_of_contents.html#methods">Methods</a>
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
   </div>
 </div>
 
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link"><a href="Endpoint.html">Jenkins2API::Endpoint</a>
+  <p class="link">BaseEndpoint
   
 </div>
 
@@ -80,16 +80,13 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Jenkins2API::Artifact">
-  <h1 id="class-Jenkins2API::Artifact" class="class">
-    class Jenkins2API::Artifact
+<main role="main" aria-labelledby="class-Jenkins2API::Endpoint::Artifact">
+  <h1 id="class-Jenkins2API::Endpoint::Artifact" class="class">
+    class Jenkins2API::Endpoint::Artifact
   </h1>
 
   <section class="description">
     
-<p>This class contains all the calls to reach Jenkins2 and obtain <a
-href="Artifact.html">Artifact</a> data</p>
-
 <p>This class contains all the calls to reach Jenkins2 and obtain <a
 href="Artifact.html">Artifact</a> data</p>
 
@@ -142,7 +139,7 @@ href="Artifact.html">Artifact</a> data</p>
 
           
           <div class="method-source-code" id="all-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">build</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">name</span>)[<span class="ruby-string">&#39;artifacts&#39;</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -190,7 +187,7 @@ href="Artifact.html">Artifact</a> data</p>
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 24</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>, <span class="ruby-identifier">artifact</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/#{build_id}/artifact/#{artifact[&#39;relativePath&#39;]}&quot;</span>, <span class="ruby-value">:raw</span>)
 <span class="ruby-keyword">end</span></pre>

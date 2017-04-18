@@ -28,24 +28,24 @@ module Jenkins2API
       end
     end
 
-    # Job related endpoints. Creates new +Jenkins2API::Job+ instance
+    # Job related endpoints. Creates new +Jenkins2API::Endpoint::Job+ instance
     def job
-      @job ||= Job.new(self)
+      @job ||= Endpoint::Job.new(self)
     end
 
-    # Build related endpoints. Creates new +Jenkins2API::Build+ instance
+    # Build related endpoints. Creates new +Jenkins2API::Endpoint::Build+ instance
     def build
-      @build ||= Build.new(self)
+      @build ||= Endpoint::Build.new(self)
     end
 
-    # Artifact related endpoints. Creates new +Jenkins2API::Artifact+ instance
+    # Artifact related endpoints. Creates new +Jenkins2API::Endpoint::Artifact+ instance
     def artifact
-      @artifact ||= Artifact.new(self)
+      @artifact ||= Endpoint::Artifact.new(self)
     end
 
-    # Node/Computer related endpoints. Creates new +Jenkins2API::Node+ instance
+    # Node/Computer related endpoints. Creates new +Jenkins2API::Endpoint::Node+ instance
     def node
-      @node ||= Node.new(self)
+      @node ||= Endpoint::Node.new(self)
     end
 
     # Creates and calls an API endpoint.
