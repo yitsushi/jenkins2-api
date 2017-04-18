@@ -2,14 +2,16 @@ require 'rubygems/package_task'
 require 'rubygems/dependency_installer'
 require 'rdoc/task'
 
-specfile = 'jenkins2-api.gemspec'
+namespace :gem do
+  specfile = 'jenkins2-api.gemspec'
 
-Gem::PackageTask.new(Gem::Specification.load(specfile)) {}
+  Gem::PackageTask.new(Gem::Specification.load(specfile)) {}
 
-desc 'Install this gem locally'
-task :install, [:user_install] => :gem do |t, args|
-  args.with_defaults( user_install: false )
-  Gem::Installer.new("pkg/jenkins2-api-#{Jenkins2API::VERSION}.gem", user_install: args.user_install).install
+  desc 'Install this gem locally'
+  task :install, [:user_install] => :gem do |t, args|
+    args.with_defaults( user_install: false )
+    Gem::Installer.new("pkg/jenkins2-api-#{Jenkins2API::VERSION}.gem", user_install: args.user_install).install
+  end
 end
 
 namespace :dependencies do
@@ -26,19 +28,21 @@ namespace :dependencies do
   end
 end
 
-desc 'generate API documentation'
-Rake::RDocTask.new do |rd|
-  rd.rdoc_dir = 'doc'
-  rd.main = 'README.md'
-  rd.rdoc_files.include(
-    'README.md',
-    'LICENSE',
-    "bin/**/*\.rb",
-    "lib/**/*\.rb"
-  )
-  rd.options << '--inline-source'
-  rd.options << '--line-numbers'
-  rd.options << '--all'
-  rd.options << '--fileboxes'
-  rd.options << '--diagram'
+namespace :doc do
+  desc 'generate API documentation'
+  Rake::RDocTask.new do |rd|
+    rd.rdoc_dir = 'doc'
+    rd.main = 'README.md'
+    rd.rdoc_files.include(
+      'README.md',
+      'LICENSE',
+      "bin/**/*\.rb",
+      "lib/**/*\.rb"
+    )
+    rd.options << '--inline-source'
+    rd.options << '--line-numbers'
+    rd.options << '--all'
+    rd.options << '--fileboxes'
+    rd.options << '--diagram'
+  end
 end
