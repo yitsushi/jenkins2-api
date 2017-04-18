@@ -101,6 +101,20 @@
     
 
     
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="MASTER_CLASS">MASTER_CLASS
+        
+        <dd><p>Jenkins java class of the master instance</p>
+        
+      
+      </dl>
+    </section>
+    
 
     
 
@@ -130,13 +144,13 @@
 
           
           <div class="method-source-code" id="all-source">
-            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 11</span>
+            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
   <span class="ruby-identifier">nodes</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">nodes</span>[<span class="ruby-string">&#39;computer&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">computer</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">type</span> = <span class="ruby-string">&#39;slave&#39;</span>
-    <span class="ruby-identifier">type</span> = <span class="ruby-string">&#39;master&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">computer</span>[<span class="ruby-string">&#39;_class&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;hudson.model.Hudson$MasterComputer&#39;</span>
-    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;[%5s] #{computer[&#39;displayName&#39;]}&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">type</span>]
+    <span class="ruby-identifier">type</span> = <span class="ruby-string">&#39;master&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">computer</span>[<span class="ruby-string">&#39;_class&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">MASTER_CLASS</span>
+    <span class="ruby-identifier">printf</span>(<span class="ruby-string">&quot;[%6s] %s\n&quot;</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">computer</span>[<span class="ruby-string">&#39;displayName&#39;</span>])
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -168,11 +182,11 @@
 
           
           <div class="method-source-code" id="slaves-source">
-            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">slaves</span>
   <span class="ruby-identifier">nodes</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">nodes</span>[<span class="ruby-string">&#39;computer&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">computer</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">computer</span>[<span class="ruby-string">&#39;_class&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;hudson.model.Hudson$MasterComputer&#39;</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">computer</span>[<span class="ruby-string">&#39;_class&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">MASTER_CLASS</span>
     <span class="ruby-identifier">puts</span> <span class="ruby-identifier">computer</span>[<span class="ruby-string">&#39;displayName&#39;</span>]
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>

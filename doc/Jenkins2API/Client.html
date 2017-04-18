@@ -79,7 +79,11 @@
     
     <li ><a href="#method-i-build">#build</a>
     
+    <li ><a href="#method-i-handle_response">#handle_response</a>
+    
     <li ><a href="#method-i-job">#job</a>
+    
+    <li ><a href="#method-i-new_request">#new_request</a>
     
     <li ><a href="#method-i-node">#node</a>
     
@@ -156,13 +160,13 @@ is empty</p>
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/client.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
-  <span class="ruby-ivar">@server</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-value">:server</span>]    <span class="ruby-operator">||</span> <span class="ruby-string">&#39;http://127.0.0.1/&#39;</span>
+  <span class="ruby-ivar">@server</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-value">:server</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;http://127.0.0.1/&#39;</span>
   <span class="ruby-ivar">@username</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>]
   <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:password</span>]
 
-  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@username</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@password</span>
-    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;If username is provided, password is required&quot;</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@username</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@password</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;If username is provided, password is required&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -216,39 +220,19 @@ is empty</p>
 
           
           <div class="method-source-code" id="api_request-source">
-            <pre><span class="ruby-comment"># File lib/client.rb, line 58</span>
+            <pre><span class="ruby-comment"># File lib/client.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">api_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">response_type</span> = <span class="ruby-value">:json</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">opts</span>)
-  <span class="ruby-identifier">response_type</span> = <span class="ruby-value">:json</span> <span class="ruby-keyword">unless</span> [<span class="ruby-value">:json</span>, <span class="ruby-value">:raw</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">response_type</span>)
-
-  <span class="ruby-identifier">parts</span> = [<span class="ruby-ivar">@server</span>, <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">path</span>)]
-  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;api/json&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">response_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:json</span>
-  <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">parts</span>))
-  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode_www_form</span>(<span class="ruby-identifier">opts</span>)
-
-  <span class="ruby-identifier">req</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">method</span>
-          <span class="ruby-keyword">when</span> <span class="ruby-value">:get</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>
-          <span class="ruby-keyword">when</span> <span class="ruby-value">:post</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>
-  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
-
+  <span class="ruby-identifier">req</span> = <span class="ruby-identifier">new_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">response_type</span>, <span class="ruby-identifier">opts</span>)
   <span class="ruby-identifier">req</span>.<span class="ruby-identifier">basic_auth</span> <span class="ruby-ivar">@username</span>, <span class="ruby-ivar">@password</span>
-  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">req</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
-  <span class="ruby-identifier">req</span>.<span class="ruby-identifier">content_type</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span>
-  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">req</span>.<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">req</span>.<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span> <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span> <span class="ruby-identifier">req</span> }
 
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">response</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span>
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">response_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:json</span>
-        <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
-      <span class="ruby-keyword">else</span>
-        <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
-      <span class="ruby-keyword">end</span>
-    <span class="ruby-keyword">when</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPRedirection</span>
-      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Redirect: #{response[&#39;location&#39;]}&quot;</span>
-      <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;location&#39;</span>]
-    <span class="ruby-keyword">else</span>
-      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Response: #{response.code}, #{response.body}&quot;</span>
-      <span class="ruby-identifier">response</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">req</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">req</span>.<span class="ruby-identifier">content_type</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;application/x-www-form-urlencoded&#39;</span>
+  <span class="ruby-identifier">response</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">req</span>.<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">req</span>.<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">http</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">http</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">req</span>)
   <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">handle_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">response_type</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -280,7 +264,7 @@ is empty</p>
 
           
           <div class="method-source-code" id="artifact-source">
-            <pre><span class="ruby-comment"># File lib/client.rb, line 42</span>
+            <pre><span class="ruby-comment"># File lib/client.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">artifact</span>
   <span class="ruby-ivar">@artifact</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Artifact</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -314,9 +298,50 @@ is empty</p>
 
           
           <div class="method-source-code" id="build-source">
-            <pre><span class="ruby-comment"># File lib/client.rb, line 37</span>
+            <pre><span class="ruby-comment"># File lib/client.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">build</span>
   <span class="ruby-ivar">@build</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Build</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_response</span><span
+            class="method-args">(response, response_type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handles response based on response_type</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_response-source">
+            <pre><span class="ruby-comment"># File lib/client.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_response</span>(<span class="ruby-identifier">response</span>, <span class="ruby-identifier">response_type</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>[<span class="ruby-string">&#39;location&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPRedirection</span>)
+
+  <span class="ruby-identifier">response</span>.<span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTPSuccess</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">response_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:json</span>
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -348,9 +373,52 @@ instance</p>
 
           
           <div class="method-source-code" id="job-source">
-            <pre><span class="ruby-comment"># File lib/client.rb, line 32</span>
+            <pre><span class="ruby-comment"># File lib/client.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">job</span>
   <span class="ruby-ivar">@job</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Job</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_request</span><span
+            class="method-args">(method, path, response_type, **opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new request for the API call with default and required values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new_request-source">
+            <pre><span class="ruby-comment"># File lib/client.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new_request</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">response_type</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">response_type</span> = <span class="ruby-value">:json</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">%</span>[<span class="ruby-identifier">json</span> <span class="ruby-identifier">raw</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">response_type</span>)
+
+  <span class="ruby-identifier">parts</span> = [<span class="ruby-ivar">@server</span>, <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">path</span>)]
+  <span class="ruby-identifier">parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;api/json&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">response_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:json</span>
+  <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">parts</span>))
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode_www_form</span>(<span class="ruby-identifier">opts</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> <span class="ruby-value">:post</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">method</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:get</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Get</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:post</span> <span class="ruby-keyword">then</span> <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Post</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">uri</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -382,7 +450,7 @@ instance</p>
 
           
           <div class="method-source-code" id="node-source">
-            <pre><span class="ruby-comment"># File lib/client.rb, line 47</span>
+            <pre><span class="ruby-comment"># File lib/client.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">node</span>
   <span class="ruby-ivar">@node</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Endpoint</span><span class="ruby-operator">::</span><span class="ruby-constant">Node</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>

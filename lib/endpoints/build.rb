@@ -40,7 +40,11 @@ module Jenkins2API
       # Return an array of strings.
       # Each item in that array is a line from the log
       def logtext_lines(name, build_id)
-        @client.api_request(:get, "/job/#{name}/#{build_id}/logText/progressiveText", :raw).split("\r\n")
+        @client.api_request(
+          :get,
+          "/job/#{name}/#{build_id}/logText/progressiveText",
+          :raw
+        ).split("\r\n")
       end
 
       # Get the name of the slave where the build was executed
@@ -50,16 +54,32 @@ module Jenkins2API
       # +build_id+:: ID of the build
       def slave_name(name, build_id)
         log = logtext_lines(name, build_id)
-        relevant_line = log.select { |line| line.match(/^Running on /) }.first
 
-        name = relevant_line.match(/^Running on (.*) in \//).captures.first rescue nil
+        line = find_line(log, /^Running on /)
+        name = first_match(line, %r{^Running on (.*) in /})
 
         if name.nil?
-          relevant_line = log.select { |line| line.match(/Building remotely on/) }.first
-          name = relevant_line.match(/Building remotely on (.*) in workspace/).captures.first
+          line = find_line(log, /Building remotely on/)
+          name = first_match(line, /Building remotely on (.*) in workspace/)
         end
 
         name
+      end
+
+      private
+
+      # find the first item in a string array
+      # that matches for a given regular expression
+      def find_line(lines, expression)
+        lines.select { |line| line.match(expression) }.first
+      end
+
+      # return the first capture block from a string
+      # that matches for a given regular expression
+      def first_match(line, expression)
+        line.match(expression).captures.first
+      rescue
+        nil
       end
     end
   end

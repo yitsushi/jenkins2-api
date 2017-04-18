@@ -8,4 +8,3 @@ module Jenkins2API
     end
   end
 end
-

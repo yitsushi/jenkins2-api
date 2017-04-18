@@ -142,7 +142,7 @@ href="Artifact.html">Artifact</a> data</p>
           <div class="method-source-code" id="all-source">
             <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">build</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">name</span>)[<span class="ruby-string">&#39;artifacts&#39;</span>]
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">build</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)[<span class="ruby-string">&#39;artifacts&#39;</span>]
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -178,9 +178,10 @@ href="Artifact.html">Artifact</a> data</p>
 <p>ID of the build</p>
 </dd><dt><code>artifact</code>
 <dd>
-<p>artifact <code>Hash</code>. this function uses only the
-<code>relativePath</code> property</p>
+<p>artifact <code>Hash</code>.</p>
 </dd></dl>
+
+<p>This function uses only the <code>relativePath</code> property</p>
 
 <p>Returns with the content of the artifact</p>
           
@@ -188,9 +189,13 @@ href="Artifact.html">Artifact</a> data</p>
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 25</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/artifact.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>, <span class="ruby-identifier">artifact</span>)
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/#{build_id}/artifact/#{artifact[&#39;relativePath&#39;]}&quot;</span>, <span class="ruby-value">:raw</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(
+    <span class="ruby-value">:get</span>,
+    <span class="ruby-node">&quot;/job/#{name}/#{build_id}/artifact/#{artifact[&#39;relativePath&#39;]}&quot;</span>,
+    <span class="ruby-value">:raw</span>
+  )
 <span class="ruby-keyword">end</span></pre>
           </div>
           

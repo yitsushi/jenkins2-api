@@ -131,13 +131,13 @@ creates a new <code>Jenkins2API::Client</code> instance for commands.</p>
 
           
           <div class="method-source-code" id="check_option-source">
-            <pre><span class="ruby-comment"># File lib/thor_command.rb, line 27</span>
+            <pre><span class="ruby-comment"># File lib/thor_command.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">check_option</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">env_name</span>)
   <span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">env_name</span>, <span class="ruby-string">&#39;&#39;</span>)
 
-  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;&#39;</span>
-    <span class="ruby-identifier">fail</span> <span class="ruby-constant">Thor</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;#{name} is not defined. &quot;</span>            <span class="ruby-node">&quot;You can specify with --#{name} option &quot;</span>            <span class="ruby-node">&quot;or &#39;#{env_name}&#39; environment variable.&quot;</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Thor</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;#{name} is not defined. &quot;</span>          <span class="ruby-node">&quot;You can specify with --#{name} option &quot;</span>          <span class="ruby-node">&quot;or &#39;#{env_name}&#39; environment variable.&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -168,16 +168,16 @@ creates a new <code>Jenkins2API::Client</code> instance for commands.</p>
 
           
           <div class="method-source-code" id="client-source">
-            <pre><span class="ruby-comment"># File lib/thor_command.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/thor_command.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">client</span>
   <span class="ruby-identifier">check_option</span>(<span class="ruby-value">:server</span>, <span class="ruby-string">&#39;JENKINS_SERVER&#39;</span>)
   <span class="ruby-identifier">check_option</span>(<span class="ruby-value">:username</span>, <span class="ruby-string">&#39;JENKINS_USERNAME&#39;</span>)
   <span class="ruby-identifier">check_option</span>(<span class="ruby-value">:password</span>, <span class="ruby-string">&#39;JENKINS_PASSWORD&#39;</span>)
 
   <span class="ruby-ivar">@client</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Jenkins2API</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>.<span class="ruby-identifier">new</span>(
-    <span class="ruby-value">:server</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:server</span>],
-    <span class="ruby-value">:username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>],
-    <span class="ruby-value">:password</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:password</span>]
+    <span class="ruby-identifier">server</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:server</span>],
+    <span class="ruby-identifier">username</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:username</span>],
+    <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:password</span>]
   )
 <span class="ruby-keyword">end</span></pre>
           </div>

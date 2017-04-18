@@ -7,7 +7,7 @@ module Jenkins2API
     class Job < BaseEndpoint
       # Lists all available jobs
       def list
-        @client.api_request(:get, "")['jobs']
+        @client.api_request(:get, '')['jobs']
       end
 
       # Get all available builds for a specific job
@@ -22,4 +22,3 @@ module Jenkins2API
     end
   end
 end
-

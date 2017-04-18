@@ -6,8 +6,8 @@ RSpec.describe Jenkins2API::Endpoint::Job, '#latest' do
     it 'returns with the build' do
       build = @client.build.latest('sample-job-pipeline')
 
-      expect(build['id']).to eq("144")
-      expect(build['displayName']).to eq("#144")
+      expect(build['id']).to eq('144')
+      expect(build['displayName']).to eq('#144')
     end
   end
 end
@@ -17,16 +17,16 @@ RSpec.describe Jenkins2API::Endpoint::Job, '#get' do
     it 'returns with the build' do
       build = @client.build.get('sample-job-pipeline', 144)
 
-      expect(build['id']).to eq("144")
-      expect(build['displayName']).to eq("#144")
+      expect(build['id']).to eq('144')
+      expect(build['displayName']).to eq('#144')
     end
   end
 
   context 'get an invalid build for a job' do
     it 'returns with the build' do
-      expect {
-        build = @client.build.get('sample-job-pipeline', 135)
-      }.to raise_error(Net::HTTPServerException, /Not Found/)
+      expect do
+        @client.build.get('sample-job-pipeline', 135)
+      end.to raise_error(Net::HTTPServerException, /Not Found/)
     end
   end
 end

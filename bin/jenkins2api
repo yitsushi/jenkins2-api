@@ -10,15 +10,30 @@ module Jenkins2API
     class Jenkins2 < Thor
       map %w[--version -v] => :__print_version
 
-      desc "--version, -v", "print the version"
+      desc '--version, -v', 'print the version'
       # Prints the current version number
       def __print_version
         puts Jenkins2API::VERSION
       end
 
-      register(Jenkins2API::Command::Job, 'job', 'job <command>', 'Job related commands')
-      register(Jenkins2API::Command::Build, 'build', 'build <command>', 'Build related commands')
-      register(Jenkins2API::Command::Node, 'node', 'node <command>', 'Node related commands')
+      register(
+        Jenkins2API::Command::Job,
+        'job',
+        'job <command>',
+        'Job related commands'
+      )
+      register(
+        Jenkins2API::Command::Build,
+        'build',
+        'build <command>',
+        'Build related commands'
+      )
+      register(
+        Jenkins2API::Command::Node,
+        'node',
+        'node <command>',
+        'Node related commands'
+      )
     end
   end
 end

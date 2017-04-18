@@ -71,6 +71,10 @@
 
   <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-find_line">#find_line</a>
+    
+    <li ><a href="#method-i-first_match">#first_match</a>
+    
     <li ><a href="#method-i-get">#get</a>
     
     <li ><a href="#method-i-latest">#latest</a>
@@ -231,7 +235,11 @@ href="Build.html">Build</a> data</p>
           <div class="method-source-code" id="logtext_lines-source">
             <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logtext_lines</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
-  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/#{build_id}/logText/progressiveText&quot;</span>, <span class="ruby-value">:raw</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\r\n&quot;</span>)
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(
+    <span class="ruby-value">:get</span>,
+    <span class="ruby-node">&quot;/job/#{name}/#{build_id}/logText/progressiveText&quot;</span>,
+    <span class="ruby-value">:raw</span>
+  ).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\r\n&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -271,16 +279,16 @@ href="Build.html">Build</a> data</p>
 
           
           <div class="method-source-code" id="slave_name-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 51</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">slave_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-identifier">log</span> = <span class="ruby-identifier">logtext_lines</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
-  <span class="ruby-identifier">relevant_line</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^Running on /</span>) }.<span class="ruby-identifier">first</span>
 
-  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">relevant_line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^Running on (.*) in \//</span>).<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">line</span> = <span class="ruby-identifier">find_line</span>(<span class="ruby-identifier">log</span>, <span class="ruby-regexp">/^Running on /</span>)
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">first_match</span>(<span class="ruby-identifier">line</span>, <span class="ruby-regexp">%r{^Running on (.*) in /}</span>)
 
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
-    <span class="ruby-identifier">relevant_line</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/Building remotely on/</span>) }.<span class="ruby-identifier">first</span>
-    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">relevant_line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/Building remotely on (.*) in workspace/</span>).<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">find_line</span>(<span class="ruby-identifier">log</span>, <span class="ruby-regexp">/Building remotely on/</span>)
+    <span class="ruby-identifier">name</span> = <span class="ruby-identifier">first_match</span>(<span class="ruby-identifier">line</span>, <span class="ruby-regexp">/Building remotely on (.*) in workspace/</span>)
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-identifier">name</span>
@@ -326,6 +334,84 @@ href="Build.html">Build</a> data</p>
             <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_results</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/#{build_id}/testReport&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-find_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_line</span><span
+            class="method-args">(lines, expression)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>find the first item in a string array that matches for a given regular
+expression</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_line-source">
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_line</span>(<span class="ruby-identifier">lines</span>, <span class="ruby-identifier">expression</span>)
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">expression</span>) }.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first_match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_match</span><span
+            class="method-args">(line, expression)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the first capture block from a string that matches for a given
+regular expression</p>
+          
+          
+
+          
+          <div class="method-source-code" id="first_match-source">
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">first_match</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">expression</span>)
+  <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">expression</span>).<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

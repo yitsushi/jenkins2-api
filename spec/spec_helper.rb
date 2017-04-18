@@ -5,7 +5,7 @@ require 'jenkins2-api'
 WebMock.disable_net_connect!(allow_localhost: true)
 
 def create_new_client
-  client = Jenkins2API::Client.new(
+  Jenkins2API::Client.new(
     server:   'http://example.jenkins2.com',
     username: 'myuser',
     password: 'mytoken'
