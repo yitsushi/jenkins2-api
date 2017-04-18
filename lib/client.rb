@@ -23,7 +23,7 @@ module Jenkins2API
       @username = options[:username]
       @password = options[:password]
 
-      if @username && !@password
+      unless @username && @password
         raise ArgumentError, "If username is provided, password is required"
       end
     end
@@ -81,10 +81,10 @@ module Jenkins2API
             response.body
           end
         when Net::HTTPRedirection
-          puts "Redirect: #{response['location']}"
+          # puts "Redirect: #{response['location']}"
           response['location']
         else
-          puts "Response: #{response.code}, #{response.body}"
+          # puts "Response: #{response.code}, #{response.body}"
           response.value
       end
     end

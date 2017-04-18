@@ -1,0 +1,43 @@
+{
+  "_class" : "hudson.model.Hudson",
+  "assignedLabels" : [{}],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 0,
+  "description" : null,
+  "jobs": [
+    {
+      "_class" : "hudson.model.FreeStyleProject",
+      "name" : "sample-job-freestyle",
+      "url" : "http://example.jenkins2.com/job/sample-job-freestyle/",
+      "color" : "red"
+    },
+    {
+      "_class" : "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "name" : "sample-job-pipeline",
+      "url" : "http://example.jenkins2.com/job/sample-job-pipeline/",
+      "color" : "blue"
+    }
+  ],
+  "overallLoad" : { },
+  "primaryView" : {
+    "_class" : "hudson.model.AllView",
+    "name" : "All",
+    "url" : "http://example.jenkins2.com/"
+  },
+  "quietingDown" : false,
+  "slaveAgentPort" : 0,
+  "unlabeledLoad" : {
+    "_class" : "jenkins.model.UnlabeledLoadStatistics"
+  },
+  "useCrumbs" : false,
+  "useSecurity" : true,
+  "views" : [
+    {
+      "_class" : "hudson.model.AllView",
+      "name" : "All",
+      "url" : "http://example.jenkins2.com/"
+    }
+  ]
+}

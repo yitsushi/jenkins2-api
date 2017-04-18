@@ -1,0 +1,126 @@
+{
+  "_class" : "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions" : [
+    {
+      "_class" : "hudson.model.CauseAction",
+      "causes" : [
+        {
+          "_class" : "hudson.triggers.TimerTrigger$TimerTriggerCause",
+          "shortDescription" : "Started by timer"
+        }
+      ]
+    },
+    {
+      "_class" : "jenkins.metrics.impl.TimeInQueueAction"
+    },
+    {
+      "_class" : "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName" : {
+        "origin/master" : {
+          "_class" : "hudson.plugins.git.util.Build",
+          "buildNumber" : 144,
+          "buildResult" : null,
+          "marked" : {
+            "SHA1" : "9e94b394e214cb89681023c3e47791fb1b8e0ffe",
+            "branch" : [
+              {
+                "SHA1" : "9e94b394e214cb89681023c3e47791fb1b8e0ffe",
+                "name" : "origin/master"
+              }
+            ]
+          },
+          "revision" : {
+            "SHA1" : "9e94b394e214cb89681023c3e47791fb1b8e0ffe",
+            "branch" : [
+              {
+                "SHA1" : "9e94b394e214cb89681023c3e47791fb1b8e0ffe",
+                "name" : "origin/master"
+              }
+            ]
+          }
+        },
+        "refs/remotes/origin/master" : {
+          "_class" : "hudson.plugins.git.util.Build",
+          "buildNumber" : 111,
+          "buildResult" : null,
+          "marked" : {
+            "SHA1" : "c9a33c0e591ed88919df0abecb26ab20bc926516",
+            "branch" : [
+              {
+                "SHA1" : "c9a33c0e591ed88919df0abecb26ab20bc926516",
+                "name" : "refs/remotes/origin/master"
+              }
+            ]
+          },
+          "revision" : {
+            "SHA1" : "c9a33c0e591ed88919df0abecb26ab20bc926516",
+            "branch" : [
+              {
+                "SHA1" : "c9a33c0e591ed88919df0abecb26ab20bc926516",
+                "name" : "refs/remotes/origin/master"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision" : {
+        "SHA1" : "9e94b394e214cb89681023c3e47791fb1b8e0ffe",
+        "branch" : [
+          {
+            "SHA1" : "9e94b394e214cb89681023c3e47791fb1b8e0ffe",
+            "name" : "origin/master"
+          }
+        ]
+      },
+      "remoteUrls" : [
+        "git@github.com:yitsushi/sample-project.git"
+      ],
+      "scmName" : ""
+    },
+    {
+      "_class" : "hudson.plugins.git.GitTagAction"
+    },
+    { },
+    { },
+    { },
+    {
+      "_class" : "hudson.tasks.junit.TestResultAction",
+      "failCount" : 3,
+      "skipCount" : 0,
+      "totalCount" : 69,
+      "urlName" : "testReport"
+    },
+    { },
+    { },
+    { },
+    { },
+    { },
+    {
+      "_class" : "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    { },
+    { }
+  ],
+  "artifacts" : [ ],
+  "building" : false,
+  "description" : null,
+  "displayName" : "#144",
+  "duration" : 3467090,
+  "estimatedDuration" : 3589668,
+  "executor" : null,
+  "fullDisplayName" : "sample-job-pipeline #144",
+  "id" : "144",
+  "keepLog" : false,
+  "number" : 144,
+  "queueId" : 19243,
+  "result" : "UNSTABLE",
+  "timestamp" : 1492499520931,
+  "url" : "http://example.jenkins2.com/job/sample-job-pipeline/144/",
+  "changeSets" : [
+  ],
+  "nextBuild" : null,
+  "previousBuild" : {
+    "number" : 143,
+    "url" : "http://example.jenkins2.com/job/sample-job-pipeline/143/"
+  }
+}
