@@ -7,6 +7,7 @@ module Jenkins2API
     class Build < Jenkins2API::ThorCommand
       desc 'slave-name JOB_NAME BUILD_ID', 'Get Node name where a specific build was running'
       method_option :ec2id, :default => false, :type => :boolean
+      # Displays the name of the slave where the build was executed
       def slave_name(name, build_id)
         slave_name = client.build.slave_name(name, build_id)
         slave_name = slave_name.match(/(i-[0-9a-zA-Z]+)/).captures.first if options[:ec2id]

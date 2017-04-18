@@ -12,7 +12,7 @@ module Jenkins2API
   class Client
     # Save Jenkins credentials and server path
     #
-    # Options:
+    # ==== Options:
     # +server+:: Server path (e.g.: https://jenkins.example.com/)
     # +username+:: Username for Jenkins
     # +password+:: Password or API Token for Jenkins
@@ -50,7 +50,7 @@ module Jenkins2API
 
     # Creates and calls an API endpoint.
     #
-    # Params:
+    # ==== Params:
     # +method+:: +:post+ or +:get+
     # +path+:: Path to the Jenkins resource (e.g.: +/job/my-job/+)
     # +response_type+:: +:json+ or +:raw+

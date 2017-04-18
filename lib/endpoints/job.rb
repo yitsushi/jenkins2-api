@@ -1,16 +1,20 @@
+require_relative '../endpoint'
+
 module Jenkins2API
   # This class contains all the calls to reach
   # Jenkins2 and obtain Build data
-  class Job
-    # Stores the Jenkins2API::Client instance
-    def initialize(client)
-      @client = client
-    end
-
+  class Job < Endpoint
+    # Lists all available jobs
     def list
       @client.api_request(:get, "")['jobs']
     end
 
+    # Get all available builds for a specific job
+    #
+    # ==== Params:
+    # +name+:: Name of the Job
+    #
+    # Returns with an array of builds
     def builds(name)
       @client.api_request(:get, "/job/#{name}")['builds']
     end

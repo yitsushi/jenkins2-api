@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">Object
+  <p class="link"><a href="Endpoint.html">Jenkins2API::Endpoint</a>
   
 </div>
 
@@ -69,8 +69,6 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
-    <li ><a href="#method-c-new">::new</a>
     
     <li ><a href="#method-i-builds">#builds</a>
     
@@ -110,47 +108,6 @@ href="Build.html">Build</a> data</p>
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(client)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Stores the <a href="Client.html">Jenkins2API::Client</a> instance</p>
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/job.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
-  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
@@ -170,13 +127,21 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Get all available builds for a specific job</p>
+
+<h4 id="method-i-builds-label-Params-3A">Params:<span><a href="#method-i-builds-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<dl class="rdoc-list note-list"><dt><code>name</code>
+<dd>
+<p>Name of the <a href="Job.html">Job</a></p>
+</dd></dl>
+
+<p>Returns with an array of builds</p>
           
           
 
           
           <div class="method-source-code" id="builds-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/job.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/job.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">builds</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}&quot;</span>)[<span class="ruby-string">&#39;builds&#39;</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -203,13 +168,13 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Lists all available jobs</p>
           
           
 
           
           <div class="method-source-code" id="list-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/job.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/job.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">list</span>
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-string">&quot;&quot;</span>)[<span class="ruby-string">&#39;jobs&#39;</span>]
 <span class="ruby-keyword">end</span></pre>

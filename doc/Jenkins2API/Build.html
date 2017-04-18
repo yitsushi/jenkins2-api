@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">Object
+  <p class="link"><a href="Endpoint.html">Jenkins2API::Endpoint</a>
   
 </div>
 
@@ -69,8 +69,6 @@
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
-    <li ><a href="#method-c-new">::new</a>
     
     <li ><a href="#method-i-get">#get</a>
     
@@ -116,47 +114,6 @@ href="Build.html">Build</a> data</p>
     
 
     
-     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Class Methods</h3>
-       </header>
-
-    
-      <div id="method-c-new" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">new</span><span
-            class="method-args">(client)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Stores the <a href="Client.html">Jenkins2API::Client</a> instance</p>
-          
-          
-
-          
-          <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>)
-  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-    </section>
-  
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
@@ -176,13 +133,22 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Get a specific build</p>
+
+<h4 id="method-i-get-label-Params-3A">Params:<span><a href="#method-i-get-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<dl class="rdoc-list note-list"><dt><code>job_name</code>
+<dd>
+<p>Name of the <a href="Job.html">Job</a></p>
+</dd><dt><code>build_id</code>
+<dd>
+<p>ID of the build</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">job_name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{job_name}/#{build_id}&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -209,13 +175,19 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Get the latest build</p>
+
+<h4 id="method-i-latest-label-Params-3A">Params:<span><a href="#method-i-latest-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<dl class="rdoc-list note-list"><dt><code>job_name</code>
+<dd>
+<p>Name of the <a href="Job.html">Job</a></p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="latest-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">latest</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/lastBuild&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -242,13 +214,24 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Get +console log+ for a specific build as text</p>
+
+<h4 id="method-i-logtext_lines-label-Params-3A">Params:<span><a href="#method-i-logtext_lines-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<dl class="rdoc-list note-list"><dt><code>job_name</code>
+<dd>
+<p>Name of the <a href="Job.html">Job</a></p>
+</dd><dt><code>build_id</code>
+<dd>
+<p>ID of the build</p>
+</dd></dl>
+
+<p>Return an array of strings. Each item in that array is a line from the log</p>
           
           
 
           
           <div class="method-source-code" id="logtext_lines-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">logtext_lines</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/#{build_id}/logText/progressiveText&quot;</span>, <span class="ruby-value">:raw</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\r\n&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -275,13 +258,22 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Get the name of the slave where the build was executed</p>
+
+<h4 id="method-i-slave_name-label-Params-3A">Params:<span><a href="#method-i-slave_name-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<dl class="rdoc-list note-list"><dt><code>name</code>
+<dd>
+<p>Name of the <a href="Job.html">Job</a></p>
+</dd><dt><code>build_id</code>
+<dd>
+<p>ID of the build</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="slave_name-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">slave_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-identifier">log</span> = <span class="ruby-identifier">logtext_lines</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-identifier">relevant_line</span> = <span class="ruby-identifier">log</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^Running on /</span>) }.<span class="ruby-identifier">first</span>
@@ -318,13 +310,22 @@ href="Build.html">Build</a> data</p>
 
         <div class="method-description">
           
-          
+          <p>Get test report for a specific build</p>
+
+<h4 id="method-i-test_results-label-Params-3A">Params:<span><a href="#method-i-test_results-label-Params-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<dl class="rdoc-list note-list"><dt><code>name</code>
+<dd>
+<p>Name of the <a href="Job.html">Job</a></p>
+</dd><dt><code>build_id</code>
+<dd>
+<p>ID of the build</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="test_results-source">
-            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 18</span>
+            <pre><span class="ruby-comment"># File lib/endpoints/build.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_results</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">api_request</span>(<span class="ruby-value">:get</span>, <span class="ruby-node">&quot;/job/#{name}/#{build_id}/testReport&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

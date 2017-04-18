@@ -125,13 +125,13 @@
 
         <div class="method-description">
           
-          
+          <p>List all available nodes</p>
           
           
 
           
           <div class="method-source-code" id="all-source">
-            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
   <span class="ruby-identifier">nodes</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">nodes</span>[<span class="ruby-string">&#39;computer&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">computer</span><span class="ruby-operator">|</span>
@@ -163,13 +163,13 @@
 
         <div class="method-description">
           
-          
+          <p>List all avilable slaves</p>
           
           
 
           
           <div class="method-source-code" id="slaves-source">
-            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 19</span>
+            <pre><span class="ruby-comment"># File lib/commands/node.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">slaves</span>
   <span class="ruby-identifier">nodes</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-identifier">nodes</span>[<span class="ruby-string">&#39;computer&#39;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">computer</span><span class="ruby-operator">|</span>

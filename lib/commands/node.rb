@@ -5,7 +5,9 @@ module Jenkins2API
   module Command
     # Contains all the commands under +node+ namespace
     class Node < Jenkins2API::ThorCommand
+
       desc :all, "List all nodes"
+      # List all available nodes
       def all
         nodes = client.node.all
         nodes['computer'].each do |computer|
@@ -16,6 +18,7 @@ module Jenkins2API
       end
 
       desc :slaves, "List all slave nodes"
+      # List all avilable slaves
       def slaves
         nodes = client.node.all
         nodes['computer'].each do |computer|

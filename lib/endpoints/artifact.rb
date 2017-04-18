@@ -1,12 +1,9 @@
+require_relative '../endpoint'
+
 module Jenkins2API
   # This class contains all the calls to reach
   # Jenkins2 and obtain Artifact data
-  class Artifact
-    # Stores the Jenkins2API::Client instance
-    def initialize(client)
-      @client = client
-    end
-
+  class Artifact < Endpoint
     # Returns a list of all artifacts for a specific build
     #
     # Params:

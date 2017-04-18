@@ -11,6 +11,7 @@ module Jenkins2API
       map %w[--version -v] => :__print_version
 
       desc "--version, -v", "print the version"
+      # Prints the current version number
       def __print_version
         puts Jenkins2API::VERSION
       end

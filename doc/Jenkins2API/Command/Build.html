@@ -123,13 +123,13 @@
 
         <div class="method-description">
           
-          
+          <p>Displays the name of the slave where the build was executed</p>
           
           
 
           
           <div class="method-source-code" id="slave_name-source">
-            <pre><span class="ruby-comment"># File lib/commands/build.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/commands/build.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">slave_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-identifier">slave_name</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">build</span>.<span class="ruby-identifier">slave_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">build_id</span>)
   <span class="ruby-identifier">slave_name</span> = <span class="ruby-identifier">slave_name</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/(i-[0-9a-zA-Z]+)/</span>).<span class="ruby-identifier">captures</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:ec2id</span>]
