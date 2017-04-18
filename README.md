@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/jenkins2-api.svg)](https://badge.fury.io/rb/jenkins2-api)
+[![Build Status](https://travis-ci.org/Yitsushi/jenkins2-api.svg?branch=master)](https://travis-ci.org/Yitsushi/jenkins2-api)
 
 # API Client for Jenkins2
 
