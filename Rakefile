@@ -1,5 +1,6 @@
 require 'rubygems/package_task'
 require 'rubygems/dependency_installer'
+require 'rdoc/task'
 
 specfile = 'jenkins2-api.gemspec'
 
@@ -25,3 +26,19 @@ namespace :dependencies do
   end
 end
 
+desc 'generate API documentation'
+Rake::RDocTask.new do |rd|
+  rd.rdoc_dir = 'doc'
+  rd.main = 'README.md'
+  rd.rdoc_files.include(
+    'README.md',
+    'LICENSE',
+    "bin/**/*\.rb",
+    "lib/**/*\.rb"
+  )
+  rd.options << '--inline-source'
+  rd.options << '--line-numbers'
+  rd.options << '--all'
+  rd.options << '--fileboxes'
+  rd.options << '--diagram'
+end
