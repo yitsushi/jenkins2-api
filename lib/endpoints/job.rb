@@ -1,5 +1,8 @@
 module Jenkins2API
+  # This class contains all the calls to reach
+  # Jenkins2 and obtain Build data
   class Job
+    # Stores the Jenkins2API::Client instance
     def initialize(client)
       @client = client
     end

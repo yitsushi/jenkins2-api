@@ -4,7 +4,9 @@ require 'thor'
 require 'jenkins2-api'
 
 module Jenkins2API
+  # CLI wrapper under Jenkins2API
   module CLI
+    # Base class for Thor with registered modules and version info
     class Jenkins2 < Thor
       map %w[--version -v] => :__print_version
 

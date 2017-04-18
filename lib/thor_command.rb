@@ -1,12 +1,16 @@
 require 'thor'
 
+# Jenkins2API codebase wrapper
 module Jenkins2API
+  # Wrapper class for commands. Checks if credentials are passed or not
+  # and creates a new +Jenkins2API::Client+ instance for commands.
   class ThorCommand < Thor
     class_option :password, :desc => "Password", :aliases => "-p", :required => false
     class_option :username, :desc => "Username", :aliases => "-u", :required => false
     class_option :server, :desc => "Server path", :aliases => "-s", :required => false
 
     private
+    # Get or create a new client
     def client
       check_option(:server, 'JENKINS_SERVER')
       check_option(:username, 'JENKINS_USERNAME')
@@ -19,6 +23,7 @@ module Jenkins2API
       )
     end
 
+    # Check option or environment variable content
     def check_option(name, env_name)
       options[name] ||= ENV.fetch(env_name, '')
 

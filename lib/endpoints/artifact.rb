@@ -1,13 +1,29 @@
 module Jenkins2API
+  # This class contains all the calls to reach
+  # Jenkins2 and obtain Artifact data
   class Artifact
+    # Stores the Jenkins2API::Client instance
     def initialize(client)
       @client = client
     end
 
+    # Returns a list of all artifacts for a specific build
+    #
+    # Params:
+    # +name+:: Job name
+    # +build_id+:: ID of the build
     def all(name, build_id)
       @client.build.get(name)['artifacts']
     end
 
+    # Download a specific artifact.
+    #
+    # Params:
+    # +name+:: Job name
+    # +build_id+:: ID of the build
+    # +artifact+:: artifact +Hash+. this function uses only the +relativePath+ property
+    #
+    # Returns with the content of the artifact
     def get(name, build_id, artifact)
       @client.api_request(:get, "/job/#{name}/#{build_id}/artifact/#{artifact['relativePath']}", :raw)
     end

@@ -1,7 +1,9 @@
 require 'thor'
 
 module Jenkins2API
+  # Command module wraps all the cli commands
   module Command
+    # Contains all the commands under +node+ namespace
     class Node < Jenkins2API::ThorCommand
       desc :all, "List all nodes"
       def all

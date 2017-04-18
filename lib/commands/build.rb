@@ -1,7 +1,9 @@
 require 'thor'
 
 module Jenkins2API
+  # Command module wraps all the cli commands
   module Command
+    # Contains all the commands under +build+ namespace
     class Build < Jenkins2API::ThorCommand
       desc 'slave-name JOB_NAME BUILD_ID', 'Get Node name where a specific build was running'
       method_option :ec2id, :default => false, :type => :boolean

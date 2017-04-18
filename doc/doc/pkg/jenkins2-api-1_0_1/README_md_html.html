@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README_md.html - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../../index.html">Home</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../../../README_md.html">README</a>
+  
+    <li class="file"><a href="../../../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API_html.html">Jenkins2API.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Artifact_html.html">Artifact.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Build_html.html">Build.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/CLI_html.html">CLI.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/CLI/Jenkins2_html.html">Jenkins2.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Client_html.html">Client.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Command_html.html">Command.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Command/Build_html.html">Build.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Command/Job_html.html">Job.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Command/Node_html.html">Node.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Job_html.html">Job.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/Node_html.html">Node.html</a>
+  
+    <li class="file"><a href="../../../doc/Jenkins2API/ThorCommand_html.html">ThorCommand.html</a>
+  
+    <li class="file"><a href="../../../doc/LICENSE_html.html">LICENSE.html</a>
+  
+    <li class="file"><a href="../../../doc/Nokogiri_html.html">Nokogiri.html</a>
+  
+    <li class="file"><a href="../../../doc/Object_html.html">Object.html</a>
+  
+    <li class="file"><a href="../../../doc/README_md_html.html">README_md.html</a>
+  
+    <li class="file"><a href="../../../doc/Rakefile_html.html">Rakefile.html</a>
+  
+    <li class="file"><a href="../../../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../../../doc/css/fonts_css.html">fonts.css</a>
+  
+    <li class="file"><a href="../../../doc/css/rdoc_css.html">rdoc.css</a>
+  
+    <li class="file"><a href="../../../doc/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../../doc/jenkins2-api_gemspec_html.html">jenkins2-api_gemspec.html</a>
+  
+    <li class="file"><a href="../../../doc/js/darkfish_js.html">darkfish.js</a>
+  
+    <li class="file"><a href="../../../doc/js/jquery_js.html">jquery.js</a>
+  
+    <li class="file"><a href="../../../doc/js/navigation_js.html">navigation.js</a>
+  
+    <li class="file"><a href="../../../doc/js/search_js.html">search.js</a>
+  
+    <li class="file"><a href="../../../doc/js/search_index_js.html">search_index.js</a>
+  
+    <li class="file"><a href="../../../doc/js/searcher_js.html">searcher.js</a>
+  
+    <li class="file"><a href="../../../doc/pkg/jenkins2-api-1_0_1/LICENSE_html.html">LICENSE.html</a>
+  
+    <li class="file"><a href="../../../doc/pkg/jenkins2-api-1_0_1/README_md_html.html">README_md.html</a>
+  
+    <li class="file"><a href="../../../doc/table_of_contents_html.html">table_of_contents.html</a>
+  
+    <li class="file"><a href="../../../jenkins2-api_gemspec.html">jenkins2-api.gemspec</a>
+  
+    <li class="file"><a href="../../../pkg/jenkins2-api-1_0_1/LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../../../pkg/jenkins2-api-1_0_1/README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Jenkins2API.html">Jenkins2API</a>
+  
+    <li><a href="../../../Jenkins2API/Artifact.html">Jenkins2API::Artifact</a>
+  
+    <li><a href="../../../Jenkins2API/Build.html">Jenkins2API::Build</a>
+  
+    <li><a href="../../../Jenkins2API/CLI.html">Jenkins2API::CLI</a>
+  
+    <li><a href="../../../Jenkins2API/CLI/Jenkins2.html">Jenkins2API::CLI::Jenkins2</a>
+  
+    <li><a href="../../../Jenkins2API/Client.html">Jenkins2API::Client</a>
+  
+    <li><a href="../../../Jenkins2API/Command.html">Jenkins2API::Command</a>
+  
+    <li><a href="../../../Jenkins2API/Command/Build.html">Jenkins2API::Command::Build</a>
+  
+    <li><a href="../../../Jenkins2API/Command/Job.html">Jenkins2API::Command::Job</a>
+  
+    <li><a href="../../../Jenkins2API/Command/Node.html">Jenkins2API::Command::Node</a>
+  
+    <li><a href="../../../Jenkins2API/Job.html">Jenkins2API::Job</a>
+  
+    <li><a href="../../../Jenkins2API/Node.html">Jenkins2API::Node</a>
+  
+    <li><a href="../../../Jenkins2API/ThorCommand.html">Jenkins2API::ThorCommand</a>
+  
+    <li><a href="../../../Nokogiri.html">Nokogiri</a>
+  
+    <li><a href="../../../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>&lt;!DOCTYPE html&gt;</p>
+
+<p>&lt;html&gt; &lt;head&gt; &lt;meta charset=“UTF-8”&gt;</p>
+
+<p>&lt;title&gt;README - RDoc Documentation&lt;/title&gt;</p>
+
+<p>&lt;script type=“text/javascript”&gt;</p>
+
+<pre>var rdoc_rel_prefix = &quot;../../&quot;;</pre>
+
+<p>&lt;/script&gt;</p>
+
+<p>&lt;script src=“../../js/jquery.js”&gt;&lt;/script&gt; &lt;script
+src=“../../js/darkfish.js”&gt;&lt;/script&gt;</p>
+
+<p>&lt;link href=“../../css/fonts.css” rel=“stylesheet”&gt; &lt;link
+href=“../../css/rdoc.css” rel=“stylesheet”&gt;</p>
+
+<p>&lt;body id=“top” role=“document” class=“file”&gt; &lt;nav
+role=“navigation”&gt;</p>
+
+<pre>&lt;div id=&quot;project-navigation&quot;&gt;
+  &lt;div id=&quot;home-section&quot; role=&quot;region&quot; title=&quot;Quick navigation&quot; class=&quot;nav-section&quot;&gt;
+&lt;h2&gt;
+  &lt;a href=&quot;../../index.html&quot; rel=&quot;home&quot;&gt;Home&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;div id=&quot;table-of-contents-navigation&quot;&gt;
+  &lt;a href=&quot;../../table_of_contents.html#pages&quot;&gt;Pages&lt;/a&gt;
+  &lt;a href=&quot;../../table_of_contents.html#classes&quot;&gt;Classes&lt;/a&gt;
+  &lt;a href=&quot;../../table_of_contents.html#methods&quot;&gt;Methods&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>  &lt;div id=&quot;search-section&quot; role=&quot;search&quot; class=&quot;project-section initially-hidden&quot;&gt;
+&lt;form action=&quot;#&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;
+  &lt;div id=&quot;search-field-wrapper&quot;&gt;
+    &lt;input id=&quot;search-field&quot; role=&quot;combobox&quot; aria-label=&quot;Search&quot;
+           aria-autocomplete=&quot;list&quot; aria-controls=&quot;search-results&quot;
+           type=&quot;text&quot; name=&quot;search&quot; placeholder=&quot;Search&quot; spellcheck=&quot;false&quot;
+           title=&quot;Type to search, Up and Down to navigate, Enter to load&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;ul id=&quot;search-results&quot; aria-label=&quot;Search Results&quot;
+      aria-busy=&quot;false&quot; aria-expanded=&quot;false&quot;
+      aria-atomic=&quot;false&quot; class=&quot;initially-hidden&quot;&gt;&lt;/ul&gt;
+&lt;/form&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>&lt;/div&gt;</pre>
+
+<p>&lt;div class=“nav-section”&gt;</p>
+
+<pre>&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul class=&quot;link-list&quot; role=&quot;directory&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#label-API+Client+for+Jenkins2&quot;&gt;API Client for Jenkins2&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;#label-Install&quot;&gt;Install&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;#label-Executable&quot;&gt;Executable&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;#label-List+computers+-2F+nodes&quot;&gt;List computers / nodes&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;#label-Get+the+name+of+the+slave+where+a+build+was+executed&quot;&gt;Get the name of the slave where a build was executed&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;#label-Ruby+side&quot;&gt;Ruby side&lt;/a&gt;
+&lt;/ul&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>&lt;div id=&quot;project-metadata&quot;&gt;
+  &lt;div id=&quot;fileindex-section&quot; class=&quot;nav-section&quot;&gt;
+&lt;h3&gt;Pages&lt;/h3&gt;
+
+&lt;ul class=&quot;link-list&quot;&gt;
+
+  &lt;li&gt;&lt;a href=&quot;../../LICENSE.html&quot;&gt;LICENSE&lt;/a&gt;
+
+  &lt;li&gt;&lt;a href=&quot;../../README_md.html&quot;&gt;README&lt;/a&gt;
+
+  &lt;li&gt;&lt;a href=&quot;../../Rakefile.html&quot;&gt;Rakefile&lt;/a&gt;
+
+  &lt;li&gt;&lt;a href=&quot;../../jenkins2-api_gemspec.html&quot;&gt;jenkins2-api.gemspec&lt;/a&gt;
+
+  &lt;li&gt;&lt;a href=&quot;../../pkg/jenkins2-api-1_0_1/LICENSE.html&quot;&gt;LICENSE&lt;/a&gt;
+
+  &lt;li&gt;&lt;a href=&quot;../../pkg/jenkins2-api-1_0_1/README_md.html&quot;&gt;README&lt;/a&gt;
+
+&lt;/ul&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>&lt;/div&gt;</pre>
+
+<p>&lt;/nav&gt;</p>
+
+<p>&lt;main role=“main” aria-label=“Page <a
+href="../../../pkg/jenkins2-api-1_0_1/README_md.html">pkg/jenkins2-api-1.0.1/README.md</a>”&gt;</p>
+
+<p>&lt;p&gt;&lt;a href=“<a
+href="https://badge.fury.io/rb/jenkins2-api"><img">badge.fury.io/rb/jenkins2-api”><img</a>
+src=“<a
+href="https://badge.fury.io/rb/jenkins2-api.svg"></a></p">badge.fury.io/rb/jenkins2-api.svg”></a></p</a>&gt;</p>
+
+<p>&lt;h1 id=“label-API+Client+for+Jenkins2”&gt;API Client for
+Jenkins2&lt;span&gt;&lt;a
+href=“#label-API+Client+for+Jenkins2”&gt;&amp;para;&lt;/a&gt; &lt;a
+href=“#top”&gt;&amp;uarr;&lt;/a&gt;&lt;/span&gt;&lt;/h1&gt;</p>
+
+<p>&lt;h2 id=“label-Install”&gt;Install&lt;span&gt;&lt;a
+href=“#label-Install”&gt;&amp;para;&lt;/a&gt; &lt;a
+href=“#top”&gt;&amp;uarr;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-identifier”&gt;gem&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;install&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;jenkins2&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;api&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;h2 id=“label-Executable”&gt;Executable&lt;span&gt;&lt;a
+href=“#label-Executable”&gt;&amp;para;&lt;/a&gt; &lt;a
+href=“#top”&gt;&amp;uarr;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;</p>
+
+<p>&lt;p&gt;You can specify server and credentials with parameters:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;password&lt;/span&gt; &lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;username&lt;/span&gt; &lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;-&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;server&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;p&gt;Or with environment variables:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-constant”&gt;JENKINS_SERVER&lt;/span&gt;=&lt;span
+class=“ruby-string”&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span
+class=“ruby-constant”&gt;JENKINS_USERNAME&lt;/span&gt;=&lt;span
+class=“ruby-string”&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span
+class=“ruby-constant”&gt;JENKINS_PASSWORD&lt;/span&gt;=&lt;span
+class=“ruby-string”&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;p&gt;Password can be a password or an API token from
+<code>/user/{user}/configure</code>&lt;/p&gt;</p>
+
+<p>&lt;h3 id=“label-List+computers+-2F+nodes”&gt;List computers /
+nodes&lt;span&gt;&lt;a
+href=“#label-List+computers+-2F+nodes”&gt;&amp;para;&lt;/a&gt; &lt;a
+href=“#top”&gt;&amp;uarr;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span class=“ruby-comment”&gt;# List all
+nodes&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;jenkins2api&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;node&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;all&lt;/span&gt;</p>
+
+<p>&lt;span class=“ruby-comment”&gt;# Only slaves&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;jenkins2api&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;node&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;slaves&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;h3
+id=“label-Get+the+name+of+the+slave+where+a+build+was+executed”&gt;Get the
+name of the slave where a build was executed&lt;span&gt;&lt;a
+href=“#label-Get+the+name+of+the+slave+where+a+build+was+executed”&gt;&amp;para;&lt;/a&gt;
+&lt;a href=“#top”&gt;&amp;uarr;&lt;/a&gt;&lt;/span&gt;&lt;/h3&gt;</p>
+
+<p>&lt;pre&gt;jenkins2api build slave-name jobname buildid&lt;/pre&gt;</p>
+
+<p>&lt;p&gt;If you build slave names contain an AWS EC2 ID, you you add
+<code>--ec2id</code> parameter to match for it and then it will print out
+only the ec2 instance id.&lt;/p&gt;</p>
+
+<p>&lt;pre&gt;jenkins2api build slave-name jobname buildid –ec2id&lt;/pre&gt;</p>
+
+<p>&lt;h2 id=“label-Ruby+side”&gt;Ruby side&lt;span&gt;&lt;a
+href=“#label-Ruby+side”&gt;&amp;para;&lt;/a&gt; &lt;a
+href=“#top”&gt;&amp;uarr;&lt;/a&gt;&lt;/span&gt;&lt;/h2&gt;</p>
+
+<p>&lt;p&gt;All response are a generic Jenkins response. There are no wrapper
+classes around them.&lt;/p&gt;</p>
+
+<p>&lt;p&gt;Create a new client:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-identifier”&gt;require&lt;/span&gt; &lt;span
+class=“ruby-string”&gt;&amp;#39;jenkins2-api&amp;#39;&lt;/span&gt;</p>
+
+<p>&lt;span class=“ruby-identifier”&gt;client&lt;/span&gt; = &lt;span
+class=“ruby-constant”&gt;Jenkins2API&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;::&lt;/span&gt;&lt;span
+class=“ruby-constant”&gt;Client&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;new&lt;/span&gt;(</p>
+
+<pre>:&lt;span class=&quot;ruby-identifier&quot;&gt;server&lt;/span&gt;   =&lt;span class=&quot;ruby-operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;http://jenkins.example.com/&amp;#39;&lt;/span&gt;,
+:&lt;span class=&quot;ruby-identifier&quot;&gt;username&lt;/span&gt; =&lt;span class=&quot;ruby-operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;myusername&amp;#39;&lt;/span&gt;,
+:&lt;span class=&quot;ruby-identifier&quot;&gt;password&lt;/span&gt; =&lt;span class=&quot;ruby-operator&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;myapitoken&amp;#39;&lt;/span&gt;</pre>
+
+<p>) &lt;/pre&gt;</p>
+
+<p>&lt;p&gt;To list all the available jobs:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-identifier”&gt;jobs&lt;/span&gt; = &lt;span
+class=“ruby-identifier”&gt;client&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;job&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;list&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;jobs&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;each&lt;/span&gt; &lt;span
+class=“ruby-keyword”&gt;do&lt;/span&gt; &lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;job&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-identifier&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ruby-node&quot;&gt;&amp;quot;[%10s] #{job[&amp;#39;name&amp;#39;]}&amp;quot;&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;%&lt;/span&gt; [&lt;span class=&quot;ruby-identifier&quot;&gt;job&lt;/span&gt;[&lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;color&amp;#39;&lt;/span&gt;]]</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;p&gt;List all node:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-identifier”&gt;nodes&lt;/span&gt; = &lt;span
+class=“ruby-identifier”&gt;client&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;node&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;all&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-node”&gt;&amp;quot;Total Executors: #{<a
+href="http://&#39;totalExecutors&#39;">nodes</a>}&amp;quot;&lt;/span&gt;
+&lt;span class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-node”&gt;&amp;quot;Busy Executors: #{<a
+href="http://&#39;busyExecutors&#39;">nodes</a>}&amp;quot;&lt;/span&gt;</p>
+
+<p>&lt;span class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-string”&gt;&amp;quot;Executors:&amp;quot;&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;nodes&lt;/span&gt;[&lt;span
+class=“ruby-string”&gt;&amp;#39;computer&amp;#39;&lt;/span&gt;].&lt;span
+class=“ruby-identifier”&gt;each&lt;/span&gt; &lt;span
+class=“ruby-keyword”&gt;do&lt;/span&gt; &lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;computer&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-identifier&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;slave&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;ruby-identifier&quot;&gt;type&lt;/span&gt; = &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;master&amp;#39;&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;computer&lt;/span&gt;[&lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;_class&amp;#39;&lt;/span&gt;] &lt;span class=&quot;ruby-operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;hudson.model.Hudson$MasterComputer&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;ruby-identifier&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ruby-node&quot;&gt;&amp;quot;  [%7s] #{computer[&amp;#39;displayName&amp;#39;]}&amp;quot;&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;%&lt;/span&gt; [&lt;span class=&quot;ruby-identifier&quot;&gt;type&lt;/span&gt;]</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;p&gt;Get a specific job&amp;#39;s latest build information:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-identifier”&gt;build&lt;/span&gt; = &lt;span
+class=“ruby-identifier”&gt;client&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;build&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;latest&lt;/span&gt;(&lt;span
+class=“ruby-string”&gt;&amp;#39;my-job&amp;#39;&lt;/span&gt;)</p>
+
+<p>&lt;span class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-node”&gt;&amp;quot;Latest build: #{<a
+href="http://&#39;id&#39;">build</a>}&amp;quot;&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-node”&gt;&amp;quot;Result: #{<a
+href="http://&#39;result&#39;">build</a>}&amp;quot;&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-node”&gt;&amp;quot;URL: #{<a
+href="http://&#39;url&#39;">build</a>}&amp;quot;&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;logfiles&lt;/span&gt; = &lt;span
+class=“ruby-identifier”&gt;build&lt;/span&gt;[&lt;span
+class=“ruby-string”&gt;&amp;#39;artifacts&amp;#39;&lt;/span&gt;].&lt;span
+class=“ruby-identifier”&gt;select&lt;/span&gt; { &lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;artifact&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;artifact&lt;/span&gt;[&lt;span
+class=“ruby-string”&gt;&amp;#39;fileName&amp;#39;&lt;/span&gt;].&lt;span
+class=“ruby-identifier”&gt;match&lt;/span&gt;(&lt;span
+class=“ruby-regexp”&gt;/.*.xml$/&lt;/span&gt;) }</p>
+
+<p>&lt;span class=“ruby-identifier”&gt;slave_name&lt;/span&gt; = &lt;span
+class=“ruby-identifier”&gt;client&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;build&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;slave_name&lt;/span&gt;(&lt;span
+class=“ruby-string”&gt;&amp;#39;my-job&amp;#39;&lt;/span&gt;, &lt;span
+class=“ruby-identifier”&gt;build&lt;/span&gt;[&lt;span
+class=“ruby-string”&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])</p>
+
+<p>&lt;span class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-node”&gt;&amp;quot;Build on:
+#{slave_name}&amp;quot;&lt;/span&gt; &lt;/pre&gt;</p>
+
+<p>&lt;p&gt;Process junit reports:&lt;/p&gt;</p>
+
+<p>&lt;pre class=“ruby”&gt;&lt;span
+class=“ruby-identifier”&gt;failed_tests&lt;/span&gt; = [] &lt;span
+class=“ruby-identifier”&gt;logfiles&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;each&lt;/span&gt; &lt;span
+class=“ruby-keyword”&gt;do&lt;/span&gt; &lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;file&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-identifier&quot;&gt;results&lt;/span&gt; = &lt;span class=&quot;ruby-constant&quot;&gt;Nokogiri&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;XML&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;client&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;artifact&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;my-job&amp;#39;&lt;/span&gt;, &lt;span class=&quot;ruby-identifier&quot;&gt;build&lt;/span&gt;[&lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;], &lt;span class=&quot;ruby-identifier&quot;&gt;file&lt;/span&gt;))
+&lt;span class=&quot;ruby-identifier&quot;&gt;failed_tests&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;results&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;xpath&lt;/span&gt;(&lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;//testcase&amp;#39;&lt;/span&gt;).&lt;span class=&quot;ruby-identifier&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;ruby-identifier&quot;&gt;testcase&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;ruby-operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;ruby-identifier&quot;&gt;testcase&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;children&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;empty?&lt;/span&gt;
+&lt;span class=&quot;ruby-keyword&quot;&gt;end&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;</p>
+
+<p>&lt;span class=“ruby-identifier”&gt;puts&lt;/span&gt; &lt;span
+class=“ruby-string”&gt;&amp;quot;Failed tests:&amp;quot;&lt;/span&gt;
+&lt;span class=“ruby-keyword”&gt;unless&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;failed_tests&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;empty?&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;failed_tests&lt;/span&gt;.&lt;span
+class=“ruby-identifier”&gt;each&lt;/span&gt; &lt;span
+class=“ruby-keyword”&gt;do&lt;/span&gt; &lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;failed&lt;/span&gt;&lt;span
+class=“ruby-operator”&gt;|&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-identifier&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ruby-node&quot;&gt;&amp;quot;  [✘] #{failed[&amp;#39;name&amp;#39;]} on #{failed[&amp;#39;classname&amp;#39;]}&amp;quot;&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt; &lt;/pre&gt;
+&lt;/main&gt;</p>
+
+<p>&lt;footer id=“validator-badges” role=“contentinfo”&gt;</p>
+
+<pre>&lt;p&gt;&lt;a href=&quot;http://validator.w3.org/check/referer&quot;&gt;Validate&lt;/a&gt;
+&lt;p&gt;Generated by &lt;a href=&quot;http://docs.seattlerb.org/rdoc/&quot;&gt;RDoc&lt;/a&gt; 4.2.1.
+&lt;p&gt;Based on &lt;a href=&quot;http://deveiate.org/projects/Darkfish-RDoc/&quot;&gt;Darkfish&lt;/a&gt; by &lt;a href=&quot;http://deveiate.org&quot;&gt;Michael Granger&lt;/a&gt;.</pre>
+
+<p>&lt;/footer&gt;</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

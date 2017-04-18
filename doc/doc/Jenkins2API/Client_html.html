@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>Client.html - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../../README_md.html">README</a>
+  
+    <li class="file"><a href="../../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API_html.html">Jenkins2API.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Artifact_html.html">Artifact.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Build_html.html">Build.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/CLI_html.html">CLI.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/CLI/Jenkins2_html.html">Jenkins2.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Client_html.html">Client.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Command_html.html">Command.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Command/Build_html.html">Build.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Command/Job_html.html">Job.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Command/Node_html.html">Node.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Job_html.html">Job.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/Node_html.html">Node.html</a>
+  
+    <li class="file"><a href="../../doc/Jenkins2API/ThorCommand_html.html">ThorCommand.html</a>
+  
+    <li class="file"><a href="../../doc/LICENSE_html.html">LICENSE.html</a>
+  
+    <li class="file"><a href="../../doc/Nokogiri_html.html">Nokogiri.html</a>
+  
+    <li class="file"><a href="../../doc/Object_html.html">Object.html</a>
+  
+    <li class="file"><a href="../../doc/README_md_html.html">README_md.html</a>
+  
+    <li class="file"><a href="../../doc/Rakefile_html.html">Rakefile.html</a>
+  
+    <li class="file"><a href="../../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../../doc/css/fonts_css.html">fonts.css</a>
+  
+    <li class="file"><a href="../../doc/css/rdoc_css.html">rdoc.css</a>
+  
+    <li class="file"><a href="../../doc/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../doc/jenkins2-api_gemspec_html.html">jenkins2-api_gemspec.html</a>
+  
+    <li class="file"><a href="../../doc/js/darkfish_js.html">darkfish.js</a>
+  
+    <li class="file"><a href="../../doc/js/jquery_js.html">jquery.js</a>
+  
+    <li class="file"><a href="../../doc/js/navigation_js.html">navigation.js</a>
+  
+    <li class="file"><a href="../../doc/js/search_js.html">search.js</a>
+  
+    <li class="file"><a href="../../doc/js/search_index_js.html">search_index.js</a>
+  
+    <li class="file"><a href="../../doc/js/searcher_js.html">searcher.js</a>
+  
+    <li class="file"><a href="../../doc/pkg/jenkins2-api-1_0_1/LICENSE_html.html">LICENSE.html</a>
+  
+    <li class="file"><a href="../../doc/pkg/jenkins2-api-1_0_1/README_md_html.html">README_md.html</a>
+  
+    <li class="file"><a href="../../doc/table_of_contents_html.html">table_of_contents.html</a>
+  
+    <li class="file"><a href="../../jenkins2-api_gemspec.html">jenkins2-api.gemspec</a>
+  
+    <li class="file"><a href="../../pkg/jenkins2-api-1_0_1/LICENSE.html">LICENSE</a>
+  
+    <li class="file"><a href="../../pkg/jenkins2-api-1_0_1/README_md.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Jenkins2API.html">Jenkins2API</a>
+  
+    <li><a href="../../Jenkins2API/Artifact.html">Jenkins2API::Artifact</a>
+  
+    <li><a href="../../Jenkins2API/Build.html">Jenkins2API::Build</a>
+  
+    <li><a href="../../Jenkins2API/CLI.html">Jenkins2API::CLI</a>
+  
+    <li><a href="../../Jenkins2API/CLI/Jenkins2.html">Jenkins2API::CLI::Jenkins2</a>
+  
+    <li><a href="../../Jenkins2API/Client.html">Jenkins2API::Client</a>
+  
+    <li><a href="../../Jenkins2API/Command.html">Jenkins2API::Command</a>
+  
+    <li><a href="../../Jenkins2API/Command/Build.html">Jenkins2API::Command::Build</a>
+  
+    <li><a href="../../Jenkins2API/Command/Job.html">Jenkins2API::Command::Job</a>
+  
+    <li><a href="../../Jenkins2API/Command/Node.html">Jenkins2API::Command::Node</a>
+  
+    <li><a href="../../Jenkins2API/Job.html">Jenkins2API::Job</a>
+  
+    <li><a href="../../Jenkins2API/Node.html">Jenkins2API::Node</a>
+  
+    <li><a href="../../Jenkins2API/ThorCommand.html">Jenkins2API::ThorCommand</a>
+  
+    <li><a href="../../Nokogiri.html">Nokogiri</a>
+  
+    <li><a href="../../Object.html">Object</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<p>&lt;!DOCTYPE html&gt;</p>
+
+<p>&lt;html&gt; &lt;head&gt; &lt;meta charset=“UTF-8”&gt;</p>
+
+<p>&lt;title&gt;class <a
+href="../../Jenkins2API/Client.html">Jenkins2API::Client</a> - RDoc
+Documentation&lt;/title&gt;</p>
+
+<p>&lt;script type=“text/javascript”&gt;</p>
+
+<pre>var rdoc_rel_prefix = &quot;../&quot;;</pre>
+
+<p>&lt;/script&gt;</p>
+
+<p>&lt;script src=“../js/jquery.js”&gt;&lt;/script&gt; &lt;script
+src=“../js/darkfish.js”&gt;&lt;/script&gt;</p>
+
+<p>&lt;link href=“../css/fonts.css” rel=“stylesheet”&gt; &lt;link
+href=“../css/rdoc.css” rel=“stylesheet”&gt;</p>
+
+<p>&lt;body id=“top” role=“document” class=“class”&gt; &lt;nav
+role=“navigation”&gt;</p>
+
+<pre>&lt;div id=&quot;project-navigation&quot;&gt;
+  &lt;div id=&quot;home-section&quot; role=&quot;region&quot; title=&quot;Quick navigation&quot; class=&quot;nav-section&quot;&gt;
+&lt;h2&gt;
+  &lt;a href=&quot;../index.html&quot; rel=&quot;home&quot;&gt;Home&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;div id=&quot;table-of-contents-navigation&quot;&gt;
+  &lt;a href=&quot;../table_of_contents.html#pages&quot;&gt;Pages&lt;/a&gt;
+  &lt;a href=&quot;../table_of_contents.html#classes&quot;&gt;Classes&lt;/a&gt;
+  &lt;a href=&quot;../table_of_contents.html#methods&quot;&gt;Methods&lt;/a&gt;
+&lt;/div&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>  &lt;div id=&quot;search-section&quot; role=&quot;search&quot; class=&quot;project-section initially-hidden&quot;&gt;
+&lt;form action=&quot;#&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot;&gt;
+  &lt;div id=&quot;search-field-wrapper&quot;&gt;
+    &lt;input id=&quot;search-field&quot; role=&quot;combobox&quot; aria-label=&quot;Search&quot;
+           aria-autocomplete=&quot;list&quot; aria-controls=&quot;search-results&quot;
+           type=&quot;text&quot; name=&quot;search&quot; placeholder=&quot;Search&quot; spellcheck=&quot;false&quot;
+           title=&quot;Type to search, Up and Down to navigate, Enter to load&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;ul id=&quot;search-results&quot; aria-label=&quot;Search Results&quot;
+      aria-busy=&quot;false&quot; aria-expanded=&quot;false&quot;
+      aria-atomic=&quot;false&quot; class=&quot;initially-hidden&quot;&gt;&lt;/ul&gt;
+&lt;/form&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>&lt;/div&gt;
+
+&lt;div id=&quot;class-metadata&quot;&gt;
+
+  &lt;div id=&quot;parent-class-section&quot; class=&quot;nav-section&quot;&gt;
+&lt;h3&gt;Parent&lt;/h3&gt;
+
+&lt;p class=&quot;link&quot;&gt;&lt;a href=&quot;../Object.html&quot;&gt;Object&lt;/a&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>&lt;!-- Method Quickref --&gt;</pre>
+
+<p>&lt;div id=“method-list-section” class=“nav-section”&gt;</p>
+
+<pre>&lt;h3&gt;Methods&lt;/h3&gt;
+
+&lt;ul class=&quot;link-list&quot; role=&quot;directory&quot;&gt;
+
+  &lt;li &gt;&lt;a href=&quot;#method-c-new&quot;&gt;::new&lt;/a&gt;
+
+  &lt;li &gt;&lt;a href=&quot;#method-i-api_request&quot;&gt;#api_request&lt;/a&gt;
+
+  &lt;li &gt;&lt;a href=&quot;#method-i-artifact&quot;&gt;#artifact&lt;/a&gt;
+
+  &lt;li &gt;&lt;a href=&quot;#method-i-build&quot;&gt;#build&lt;/a&gt;
+
+  &lt;li &gt;&lt;a href=&quot;#method-i-job&quot;&gt;#job&lt;/a&gt;
+
+  &lt;li &gt;&lt;a href=&quot;#method-i-node&quot;&gt;#node&lt;/a&gt;
+
+&lt;/ul&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>&lt;/div&gt;</pre>
+
+<p>&lt;/nav&gt;</p>
+
+<p>&lt;main role=“main” aria-labelledby=“class-Jenkins2API::Client”&gt;</p>
+
+<pre class="ruby"><span class="ruby-operator">&lt;</span><span class="ruby-identifier">h1</span> <span class="ruby-identifier">id</span>=<span class="ruby-string">&quot;class-Jenkins2API::Client&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;class&quot;</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">Jenkins2API</span><span class="ruby-operator">::</span><span class="ruby-constant">Client</span>
+<span class="ruby-operator">&lt;</span><span class="ruby-regexp">/h1&gt;
+
+&lt;section class=&quot;description&quot;&gt;
+
+&lt;/</span><span class="ruby-identifier">ection</span><span class="ruby-operator">&gt;</span>
+
+<span class="ruby-operator">&lt;</span><span class="ruby-identifier">section</span> <span class="ruby-identifier">id</span>=<span class="ruby-string">&quot;5Buntitled-5D&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;documentation-section&quot;</span><span class="ruby-operator">&gt;</span>
+
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">section</span> <span class="ruby-identifier">id</span>=<span class="ruby-string">&quot;public-class-5Buntitled-5D-method-details&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-section&quot;</span><span class="ruby-operator">&gt;</span>
+     <span class="ruby-operator">&lt;</span><span class="ruby-identifier">header</span><span class="ruby-operator">&gt;</span>
+       <span class="ruby-operator">&lt;</span><span class="ruby-identifier">h3</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">Public</span> <span class="ruby-constant">Class</span> <span class="ruby-constant">Methods</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/h3&gt;
+     &lt;/</span><span class="ruby-identifier">header</span><span class="ruby-operator">&gt;</span>
+
+    <span class="ruby-operator">&lt;</span><span class="ruby-identifier">div</span> <span class="ruby-identifier">id</span>=<span class="ruby-string">&quot;method-c-new&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-detail &quot;</span><span class="ruby-operator">&gt;</span>
+
+      <span class="ruby-operator">&lt;</span><span class="ruby-identifier">div</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-heading&quot;</span><span class="ruby-operator">&gt;</span>
+        <span class="ruby-operator">&lt;</span><span class="ruby-identifier">span</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-name&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">new</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/span&gt;&lt;span
+          class=&quot;method-args&quot;&gt;(**options)&lt;/</span><span class="ruby-identifier">pan</span><span class="ruby-operator">&gt;</span>
+
+        <span class="ruby-operator">&lt;</span><span class="ruby-identifier">span</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-click-advice&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">click</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">toggle</span> <span class="ruby-identifier">source</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/span&gt;
+
+      &lt;/</span><span class="ruby-identifier">div</span><span class="ruby-operator">&gt;</span>
+
+      <span class="ruby-operator">&lt;</span><span class="ruby-identifier">div</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-description&quot;</span><span class="ruby-operator">&gt;</span>
+
+        <span class="ruby-operator">&lt;</span><span class="ruby-identifier">p</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">Save</span> <span class="ruby-constant">Jenkins</span> <span class="ruby-identifier">credentials</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">server</span> <span class="ruby-identifier">path</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/p&gt;
+</span></pre>
+
+<p>&lt;p&gt;Options:&lt;/p&gt; &lt;dl class=“rdoc-list
+note-list”&gt;&lt;dt&gt;<code>server</code> &lt;dd&gt; &lt;p&gt;Server path
+(e.g.: &lt;a href=“<a
+href="https://jenkins.example.com">jenkins.example.com</a>/)</p">jenkins.example.com”>jenkins.example.com</a>/)</p</a>&gt;
+&lt;/dd&gt;&lt;dt&gt;<code>username</code> &lt;dd&gt; &lt;p&gt;Username for
+Jenkins&lt;/p&gt; &lt;/dd&gt;&lt;dt&gt;<code>password</code> &lt;dd&gt;
+&lt;p&gt;Password or API Token for Jenkins&lt;/p&gt; &lt;/dd&gt;&lt;/dl&gt;</p>
+
+<p>&lt;p&gt;Throws an <code>ArgumentError</code> if username is specified but
+password is empty&lt;/p&gt;</p>
+
+<pre>&lt;div class=&quot;method-source-code&quot; id=&quot;new-source&quot;&gt;
+  &lt;pre&gt;&lt;span class=&quot;ruby-comment&quot;&gt;# File lib/client.rb, line 19&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;def&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;initialize&lt;/span&gt;(&lt;span
+class=“ruby-operator”&gt;**&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;options&lt;/span&gt;)</p>
+
+<pre>&lt;span class=&quot;ruby-ivar&quot;&gt;@server&lt;/span&gt;   = &lt;span class=&quot;ruby-identifier&quot;&gt;options&lt;/span&gt;[&lt;span class=&quot;ruby-value&quot;&gt;:server&lt;/span&gt;]    &lt;span class=&quot;ruby-operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;http://127.0.0.1/&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;ruby-ivar&quot;&gt;@username&lt;/span&gt; = &lt;span class=&quot;ruby-identifier&quot;&gt;options&lt;/span&gt;[&lt;span class=&quot;ruby-value&quot;&gt;:username&lt;/span&gt;]
+&lt;span class=&quot;ruby-ivar&quot;&gt;@password&lt;/span&gt; = &lt;span class=&quot;ruby-identifier&quot;&gt;options&lt;/span&gt;[&lt;span class=&quot;ruby-value&quot;&gt;:password&lt;/span&gt;]
+
+&lt;span class=&quot;ruby-keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ruby-ivar&quot;&gt;@username&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;ruby-ivar&quot;&gt;@password&lt;/span&gt;
+  &lt;span class=&quot;ruby-identifier&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;ArgumentError&lt;/span&gt;, &lt;span class=&quot;ruby-string&quot;&gt;&amp;quot;If username is provided, password is required&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ruby-keyword&quot;&gt;end&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;&lt;/pre&gt;</p>
+
+<pre class="ruby">      <span class="ruby-operator">&lt;</span><span class="ruby-regexp">/div&gt;
+
+    &lt;/</span><span class="ruby-identifier">div</span><span class="ruby-operator">&gt;</span>
+
+  <span class="ruby-operator">&lt;</span><span class="ruby-regexp">/div&gt;
+
+&lt;/</span><span class="ruby-identifier">ection</span><span class="ruby-operator">&gt;</span>
+
+ <span class="ruby-operator">&lt;</span><span class="ruby-identifier">section</span> <span class="ruby-identifier">id</span>=<span class="ruby-string">&quot;public-instance-5Buntitled-5D-method-details&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-section&quot;</span><span class="ruby-operator">&gt;</span>
+   <span class="ruby-operator">&lt;</span><span class="ruby-identifier">header</span><span class="ruby-operator">&gt;</span>
+     <span class="ruby-operator">&lt;</span><span class="ruby-identifier">h3</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">Public</span> <span class="ruby-constant">Instance</span> <span class="ruby-constant">Methods</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/h3&gt;
+   &lt;/</span><span class="ruby-identifier">header</span><span class="ruby-operator">&gt;</span>
+
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">div</span> <span class="ruby-identifier">id</span>=<span class="ruby-string">&quot;method-i-api_request&quot;</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-detail &quot;</span><span class="ruby-operator">&gt;</span>
+
+    <span class="ruby-operator">&lt;</span><span class="ruby-identifier">div</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-heading&quot;</span><span class="ruby-operator">&gt;</span>
+      <span class="ruby-operator">&lt;</span><span class="ruby-identifier">span</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-name&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">api_request</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/span&gt;&lt;span
+        class=&quot;method-args&quot;&gt;(method, path, response_type = :json, **opts) { |req| ... }&lt;/</span><span class="ruby-identifier">pan</span><span class="ruby-operator">&gt;</span>
+
+      <span class="ruby-operator">&lt;</span><span class="ruby-identifier">span</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-click-advice&quot;</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">click</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">toggle</span> <span class="ruby-identifier">source</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/span&gt;
+
+    &lt;/</span><span class="ruby-identifier">div</span><span class="ruby-operator">&gt;</span>
+
+    <span class="ruby-operator">&lt;</span><span class="ruby-identifier">div</span> <span class="ruby-identifier">class</span>=<span class="ruby-string">&quot;method-description&quot;</span><span class="ruby-operator">&gt;</span>
+
+      <span class="ruby-operator">&lt;</span><span class="ruby-identifier">p</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">Creates</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">calls</span> <span class="ruby-identifier">an</span> <span class="ruby-constant">API</span> <span class="ruby-identifier">endpoint</span>.<span class="ruby-operator">&lt;</span><span class="ruby-operator">/</span><span class="ruby-identifier">p</span><span class="ruby-operator">&gt;</span>
+</pre>
+
+<p>&lt;p&gt;Params:&lt;/p&gt; &lt;dl class=“rdoc-list
+note-list”&gt;&lt;dt&gt;<code>method</code> &lt;dd&gt;
+&lt;p&gt;<code>:post</code> or <code>:get</code>&lt;/p&gt;
+&lt;/dd&gt;&lt;dt&gt;<code>path</code> &lt;dd&gt; &lt;p&gt;Path to the
+Jenkins resource (e.g.: <code>/job/my-job/</code>)&lt;/p&gt;
+&lt;/dd&gt;&lt;dt&gt;<code>response_type</code> &lt;dd&gt;
+&lt;p&gt;<code>:json</code> or <code>:raw</code>&lt;/p&gt;
+&lt;/dd&gt;&lt;dt&gt;<code>opts</code> &lt;dd&gt; &lt;p&gt;sym options to
+pass to the endpoint. Applicable only if <code>:post</code>&lt;/p&gt;
+&lt;/dd&gt;&lt;/dl&gt;</p>
+
+<pre>&lt;div class=&quot;method-source-code&quot; id=&quot;api_request-source&quot;&gt;
+  &lt;pre&gt;&lt;span class=&quot;ruby-comment&quot;&gt;# File lib/client.rb, line 56&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;def&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;api_request&lt;/span&gt;(&lt;span
+class=“ruby-identifier”&gt;method&lt;/span&gt;, &lt;span
+class=“ruby-identifier”&gt;path&lt;/span&gt;, &lt;span
+class=“ruby-identifier”&gt;response_type&lt;/span&gt; = &lt;span
+class=“ruby-value”&gt;:json&lt;/span&gt;, &lt;span
+class=“ruby-operator”&gt;**&lt;/span&gt;&lt;span
+class=“ruby-identifier”&gt;opts&lt;/span&gt;)</p>
+
+<pre>&lt;span class=&quot;ruby-identifier&quot;&gt;response_type&lt;/span&gt; = &lt;span class=&quot;ruby-value&quot;&gt;:json&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;unless&lt;/span&gt; [&lt;span class=&quot;ruby-value&quot;&gt;:json&lt;/span&gt;, &lt;span class=&quot;ruby-value&quot;&gt;:raw&lt;/span&gt;].&lt;span class=&quot;ruby-identifier&quot;&gt;include?&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;response_type&lt;/span&gt;)
+
+&lt;span class=&quot;ruby-identifier&quot;&gt;parts&lt;/span&gt; = [&lt;span class=&quot;ruby-ivar&quot;&gt;@server&lt;/span&gt;, &lt;span class=&quot;ruby-constant&quot;&gt;URI&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;escape&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;path&lt;/span&gt;)]
+&lt;span class=&quot;ruby-identifier&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;api/json&amp;#39;&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;response_type&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ruby-value&quot;&gt;:json&lt;/span&gt;
+&lt;span class=&quot;ruby-identifier&quot;&gt;uri&lt;/span&gt; = &lt;span class=&quot;ruby-constant&quot;&gt;URI&lt;/span&gt;(&lt;span class=&quot;ruby-constant&quot;&gt;File&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;join&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;parts&lt;/span&gt;))
+&lt;span class=&quot;ruby-identifier&quot;&gt;uri&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;query&lt;/span&gt; = &lt;span class=&quot;ruby-constant&quot;&gt;URI&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;encode_www_form&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;opts&lt;/span&gt;)
+
+&lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt; = &lt;span class=&quot;ruby-keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;method&lt;/span&gt;
+        &lt;span class=&quot;ruby-keyword&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;ruby-value&quot;&gt;:get&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;Get&lt;/span&gt;
+        &lt;span class=&quot;ruby-keyword&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;ruby-value&quot;&gt;:post&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;Post&lt;/span&gt;
+&lt;span class=&quot;ruby-keyword&quot;&gt;end&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;new&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;uri&lt;/span&gt;)
+
+&lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;basic_auth&lt;/span&gt; &lt;span class=&quot;ruby-ivar&quot;&gt;@username&lt;/span&gt;, &lt;span class=&quot;ruby-ivar&quot;&gt;@password&lt;/span&gt;
+&lt;span class=&quot;ruby-keyword&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt; &lt;span class=&quot;ruby-keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;block_given?&lt;/span&gt;
+&lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;content_type&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;application/x-www-form-urlencoded&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;ruby-identifier&quot;&gt;response&lt;/span&gt; = &lt;span class=&quot;ruby-constant&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;HTTP&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;start&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;uri&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;hostname&lt;/span&gt;, &lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;uri&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;port&lt;/span&gt;) { &lt;span class=&quot;ruby-operator&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;ruby-identifier&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;http&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;req&lt;/span&gt; }
+
+&lt;span class=&quot;ruby-keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;response&lt;/span&gt;
+  &lt;span class=&quot;ruby-keyword&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;HTTPSuccess&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;response_type&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ruby-value&quot;&gt;:json&lt;/span&gt;
+      &lt;span class=&quot;ruby-constant&quot;&gt;JSON&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;parse&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;response&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;body&lt;/span&gt;)
+    &lt;span class=&quot;ruby-keyword&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;ruby-identifier&quot;&gt;response&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;body&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;ruby-keyword&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;ruby-operator&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;ruby-constant&quot;&gt;HTTPRedirection&lt;/span&gt;
+    &lt;span class=&quot;ruby-identifier&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ruby-node&quot;&gt;&amp;quot;Redirect: #{response[&amp;#39;location&amp;#39;]}&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;ruby-identifier&quot;&gt;response&lt;/span&gt;[&lt;span class=&quot;ruby-string&quot;&gt;&amp;#39;location&amp;#39;&lt;/span&gt;]
+  &lt;span class=&quot;ruby-keyword&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;ruby-identifier&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;ruby-node&quot;&gt;&amp;quot;Response: #{response.code}, #{response.body}&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;ruby-identifier&quot;&gt;response&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;value&lt;/span&gt;
+&lt;span class=&quot;ruby-keyword&quot;&gt;end&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;&lt;/pre&gt;</p>
+
+<pre>    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;method-i-artifact&quot; class=&quot;method-detail &quot;&gt;
+
+  &lt;div class=&quot;method-heading&quot;&gt;
+    &lt;span class=&quot;method-name&quot;&gt;artifact&lt;/span&gt;&lt;span
+      class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;method-description&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;Artifact.html&quot;&gt;Artifact&lt;/a&gt; related endpoints. Creates new</pre>
+
+<p><code>Jenkins2API::Artifact</code> instance&lt;/p&gt;</p>
+
+<pre>&lt;div class=&quot;method-source-code&quot; id=&quot;artifact-source&quot;&gt;
+  &lt;pre&gt;&lt;span class=&quot;ruby-comment&quot;&gt;# File lib/client.rb, line 40&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;def&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;artifact&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-ivar&quot;&gt;@artifact&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Artifact&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;new&lt;/span&gt;(&lt;span class=&quot;ruby-keyword&quot;&gt;self&lt;/span&gt;)</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;&lt;/pre&gt;</p>
+
+<pre>    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;method-i-build&quot; class=&quot;method-detail &quot;&gt;
+
+  &lt;div class=&quot;method-heading&quot;&gt;
+    &lt;span class=&quot;method-name&quot;&gt;build&lt;/span&gt;&lt;span
+      class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;method-description&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;Build.html&quot;&gt;Build&lt;/a&gt; related endpoints. Creates new</pre>
+
+<p><code>Jenkins2API::Build</code> instance&lt;/p&gt;</p>
+
+<pre>&lt;div class=&quot;method-source-code&quot; id=&quot;build-source&quot;&gt;
+  &lt;pre&gt;&lt;span class=&quot;ruby-comment&quot;&gt;# File lib/client.rb, line 35&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;def&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;build&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-ivar&quot;&gt;@build&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Build&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;new&lt;/span&gt;(&lt;span class=&quot;ruby-keyword&quot;&gt;self&lt;/span&gt;)</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;&lt;/pre&gt;</p>
+
+<pre>    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;method-i-job&quot; class=&quot;method-detail &quot;&gt;
+
+  &lt;div class=&quot;method-heading&quot;&gt;
+    &lt;span class=&quot;method-name&quot;&gt;job&lt;/span&gt;&lt;span
+      class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;method-description&quot;&gt;
+
+    &lt;p&gt;&lt;a href=&quot;Job.html&quot;&gt;Job&lt;/a&gt; related endpoints. Creates new</pre>
+
+<p><code>Jenkins2API::Job</code> instance&lt;/p&gt;</p>
+
+<pre>&lt;div class=&quot;method-source-code&quot; id=&quot;job-source&quot;&gt;
+  &lt;pre&gt;&lt;span class=&quot;ruby-comment&quot;&gt;# File lib/client.rb, line 30&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;def&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;job&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-ivar&quot;&gt;@job&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Job&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;new&lt;/span&gt;(&lt;span class=&quot;ruby-keyword&quot;&gt;self&lt;/span&gt;)</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;&lt;/pre&gt;</p>
+
+<pre>    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id=&quot;method-i-node&quot; class=&quot;method-detail &quot;&gt;
+
+  &lt;div class=&quot;method-heading&quot;&gt;
+    &lt;span class=&quot;method-name&quot;&gt;node&lt;/span&gt;&lt;span
+      class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;method-description&quot;&gt;
+
+    &lt;p&gt;Node/Computer related endpoints. Creates new &lt;code&gt;Jenkins2API::Node&lt;/code&gt;</pre>
+
+<p>instance&lt;/p&gt;</p>
+
+<pre>&lt;div class=&quot;method-source-code&quot; id=&quot;node-source&quot;&gt;
+  &lt;pre&gt;&lt;span class=&quot;ruby-comment&quot;&gt;# File lib/client.rb, line 45&lt;/span&gt;</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;def&lt;/span&gt; &lt;span
+class=“ruby-identifier”&gt;node&lt;/span&gt;</p>
+
+<pre>&lt;span class=&quot;ruby-ivar&quot;&gt;@node&lt;/span&gt; &lt;span class=&quot;ruby-operator&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;ruby-constant&quot;&gt;Node&lt;/span&gt;.&lt;span class=&quot;ruby-identifier&quot;&gt;new&lt;/span&gt;(&lt;span class=&quot;ruby-keyword&quot;&gt;self&lt;/span&gt;)</pre>
+
+<p>&lt;span class=“ruby-keyword”&gt;end&lt;/span&gt;&lt;/pre&gt;</p>
+
+<pre>        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+  &lt;/section&gt;
+
+&lt;/section&gt;</pre>
+
+<p>&lt;/main&gt;</p>
+
+<p>&lt;footer id=“validator-badges” role=“contentinfo”&gt;</p>
+
+<pre>&lt;p&gt;&lt;a href=&quot;http://validator.w3.org/check/referer&quot;&gt;Validate&lt;/a&gt;
+&lt;p&gt;Generated by &lt;a href=&quot;http://docs.seattlerb.org/rdoc/&quot;&gt;RDoc&lt;/a&gt; 4.2.1.
+&lt;p&gt;Based on &lt;a href=&quot;http://deveiate.org/projects/Darkfish-RDoc/&quot;&gt;Darkfish&lt;/a&gt; by &lt;a href=&quot;http://deveiate.org&quot;&gt;Michael Granger&lt;/a&gt;.</pre>
+
+<p>&lt;/footer&gt;</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
