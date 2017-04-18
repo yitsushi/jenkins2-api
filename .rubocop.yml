@@ -1,0 +1,10 @@
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - "Rakefile"
+    - "vendor/**/*"
+    - "*.gemspec"
+    - "Gemfile"
+
+Style/FileName:
+  Enabled: false

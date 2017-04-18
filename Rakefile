@@ -2,6 +2,7 @@ require 'rubygems/package_task'
 require 'rubygems/dependency_installer'
 require 'rdoc/task'
 require 'rspec/core/rake_task'
+require 'rubocop/rake_task'
 
 namespace :gem do
   specfile = 'jenkins2-api.gemspec'
@@ -40,13 +41,14 @@ namespace :doc do
       "bin/**/*\.rb",
       "lib/**/*\.rb"
     )
-    rd.options << '--inline-source'
     rd.options << '--line-numbers'
     rd.options << '--all'
-    rd.options << '--fileboxes'
-    rd.options << '--diagram'
   end
 end
 
-RSpec::Core::RakeTask.new(:spec)
-task :default => :spec
+namespace :test do
+  RuboCop::RakeTask.new(:rubocop)
+  RSpec::Core::RakeTask.new(:spec)
+end
+
+task default: ['test:rubocop', 'test:spec']

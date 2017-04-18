@@ -19,31 +19,35 @@ module Jenkins2API
     # Throws an +ArgumentError+ if username is specified
     # but password is empty
     def initialize(**options)
-      @server   = options[:server]    || 'http://127.0.0.1/'
+      @server   = options[:server] || 'http://127.0.0.1/'
       @username = options[:username]
       @password = options[:password]
 
-      unless @username && @password
-        raise ArgumentError, "If username is provided, password is required"
-      end
+      return if @username && @password
+
+      raise ArgumentError, 'If username is provided, password is required'
     end
 
-    # Job related endpoints. Creates new +Jenkins2API::Endpoint::Job+ instance
+    # Job related endpoints.
+    # Creates new +Jenkins2API::Endpoint::Job+ instance
     def job
       @job ||= Endpoint::Job.new(self)
     end
 
-    # Build related endpoints. Creates new +Jenkins2API::Endpoint::Build+ instance
+    # Build related endpoints.
+    # Creates new +Jenkins2API::Endpoint::Build+ instance
     def build
       @build ||= Endpoint::Build.new(self)
     end
 
-    # Artifact related endpoints. Creates new +Jenkins2API::Endpoint::Artifact+ instance
+    # Artifact related endpoints.
+    # Creates new +Jenkins2API::Endpoint::Artifact+ instance
     def artifact
       @artifact ||= Endpoint::Artifact.new(self)
     end
 
-    # Node/Computer related endpoints. Creates new +Jenkins2API::Endpoint::Node+ instance
+    # Node/Computer related endpoints.
+    # Creates new +Jenkins2API::Endpoint::Node+ instance
     def node
       @node ||= Endpoint::Node.new(self)
     end
@@ -56,36 +60,45 @@ module Jenkins2API
     # +response_type+:: +:json+ or +:raw+
     # +opts+:: sym options to pass to the endpoint. Applicable only if +:post+
     def api_request(method, path, response_type = :json, **opts)
-      response_type = :json unless [:json, :raw].include?(response_type)
+      req = new_request(method, path, response_type, opts)
+      req.basic_auth @username, @password
+
+      yield req if block_given?
+
+      req.content_type ||= 'application/x-www-form-urlencoded'
+      response = Net::HTTP.start(req.uri.hostname, req.uri.port) do |http|
+        http.request(req)
+      end
+
+      handle_response(response, response_type)
+    end
+
+    # Creates a new request for the API call
+    # with default and required values
+    def new_request(method, path, response_type, **opts)
+      response_type = :json unless %i[json raw].include?(response_type)
 
       parts = [@server, URI.escape(path)]
       parts << 'api/json' if response_type == :json
       uri = URI(File.join(parts))
-      uri.query = URI.encode_www_form(opts)
+      uri.query = URI.encode_www_form(opts) if method == :post
 
-      req = case method
-              when :get then Net::HTTP::Get
-              when :post then Net::HTTP::Post
+      case method
+      when :get then Net::HTTP::Get
+      when :post then Net::HTTP::Post
       end.new(uri)
+    end
 
-      req.basic_auth @username, @password
-      yield req if block_given?
-      req.content_type ||= 'application/x-www-form-urlencoded'
-      response = Net::HTTP.start(req.uri.hostname, req.uri.port) { |http| http.request req }
+    # Handles response based on response_type
+    def handle_response(response, response_type)
+      return response['location'] if response.is_a?(Net::HTTPRedirection)
 
-      case response
-        when Net::HTTPSuccess
-          if response_type == :json
-            JSON.parse(response.body)
-          else
-            response.body
-          end
-        when Net::HTTPRedirection
-          # puts "Redirect: #{response['location']}"
-          response['location']
-        else
-          # puts "Response: #{response.code}, #{response.body}"
-          response.value
+      response.value unless response.is_a?(Net::HTTPSuccess)
+
+      if response_type == :json
+        JSON.parse(response.body)
+      else
+        response.body
       end
     end
   end

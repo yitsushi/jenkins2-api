@@ -8,4 +8,3 @@ RSpec.describe Jenkins2API::Endpoint::Job, '#list' do
     end
   end
 end
-
