@@ -4,7 +4,6 @@ require_relative 'lib/version'
 Gem::Specification.new do |s|
   s.name = 'jenkins2-api'
   s.version = Jenkins2API::VERSION
-  s.date = '2017-04-06'
   s.summary = 'API client for Jenkins 2.'
   s.description = 'API client for Jenkins 2 with executable'
   s.authors = ['Balazs Nadasdi']
@@ -12,10 +11,11 @@ Gem::Specification.new do |s|
   s.homepage = 'https://yitsushi.github.io/jenkins2-api/'
   s.license = 'MIT'
 
-  s.required_ruby_version = '~> 2.0'
+  s.required_ruby_version = ::Gem::Requirement.new('~> 2.0')
 
   s.files = Dir['CHANGELOG.md', 'LICENSE', 'README.md', 'lib/**/*.rb']
   s.executables = ['jenkins2api']
+  s.test_files = Dir['spec/**/*']
 
   s.require_path = 'lib'
 

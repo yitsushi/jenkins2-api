@@ -1,5 +1,6 @@
 require 'sinatra/base'
 
+# Fake Jenkins server for rspec
 class FakeJenkins < Sinatra::Base
   get '/api/json' do
     json_response 200, 'job_list.json'
