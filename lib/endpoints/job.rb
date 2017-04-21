@@ -19,6 +19,8 @@ module Jenkins2API
       def builds(name)
         @client.api_request(:get, "/job/#{name}")['builds']
       end
+
+      alias_method :get_builds, :builds
     end
   end
 end

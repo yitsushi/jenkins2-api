@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jenkins2-api (1.0.4)
+    jenkins2-api (1.0.5)
       thor (~> 0.19)
 
 GEM
