@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
-require_relative 'lib/version'
+require './lib/version'
 
 Gem::Specification.new do |s|
   s.name = 'jenkins2-api'
@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage = 'https://yitsushi.github.io/jenkins2-api/'
   s.license = 'MIT'
 
-  s.required_ruby_version = ::Gem::Requirement.new('~> 1.9')
+  s.required_ruby_version = ::Gem::Requirement.new('>= 1.9.1')
 
   s.files = Dir['CHANGELOG.md', 'LICENSE', 'README.md', 'lib/**/*.rb']
   s.executables = ['jenkins2api']
@@ -21,11 +21,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'thor', '~> 0.19'
 
-  s.add_development_dependency 'rake', '~> 12.0'
-  s.add_development_dependency 'rdoc', '~> 5.1'
-  s.add_development_dependency 'rspec', '~> 3.5'
-  s.add_development_dependency 'webmock', '~> 3.0'
-  s.add_development_dependency 'sinatra', '~> 1.4'
-  s.add_development_dependency 'rubocop', '~> 0.48'
+  s.add_development_dependency 'rake', '>= 12.0'
+  s.add_development_dependency 'rdoc', '>= 5.1'
+  s.add_development_dependency 'rspec', '>= 3.5'
+  s.add_development_dependency 'webmock', '>= 3.0'
+  s.add_development_dependency 'sinatra', '>= 1.4'
+  s.add_development_dependency 'rubocop', '>= 0.48'
 end
 
