@@ -31,7 +31,7 @@ module Jenkins2API
         @client.api_request(:get, "/job/#{name}")['builds']
       end
 
-      alias :get_builds, :builds
+      alias :get_builds :builds
     end
   end
 end
