@@ -10,6 +10,17 @@ module Jenkins2API
         @client.api_request(:get, '')['jobs']
       end
 
+      # Get test results "alias"
+      # Why? Because jenkins1 api gem uses this logic
+      # Why? I don't know.
+      #
+      # ==== Params:
+      # +name+:: Name of the Job
+      # +build_id+:: ID of the build
+      def get_test_results(name, build_id)
+        @client.build.get_test_results(name, build_id)
+      end
+
       # Get all available builds for a specific job
       #
       # ==== Params:
