@@ -18,7 +18,7 @@ module Jenkins2API
       # +name+:: Name of the Job
       # +build_id+:: ID of the build
       def get_test_results(name, build_id)
-        @client.build.get_test_results(name, build_id)
+        @client.build.test_results(name, build_id)
       end
 
       # Get all available builds for a specific job
