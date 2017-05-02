@@ -22,6 +22,15 @@ module Jenkins2API
           :"plugin.#{short}.default" => 'on'
         )
       end
+
+      # Safe-restart jenkins
+      def safe_restart
+        @client.api_request(
+          :post,
+          '/updatecenter/saferestart',
+          :raw
+        )
+      end
     end
   end
 end
