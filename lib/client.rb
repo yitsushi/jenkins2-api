@@ -5,6 +5,7 @@ require_relative './endpoints/artifact'
 require_relative './endpoints/build'
 require_relative './endpoints/job'
 require_relative './endpoints/node'
+require_relative './endpoints/configuration'
 
 # Jenkins2API codebase wrapper
 module Jenkins2API
@@ -46,6 +47,12 @@ module Jenkins2API
       @artifact ||= Endpoint::Artifact.new(self)
     end
 
+    # Configuration related endpoints.
+    # Creates new +Jenkins2API::Endpoint::Configuration+ instance
+    def configuration
+      @configuration ||= Endpoint::Configuration.new(self)
+    end
+
     # Node/Computer related endpoints.
     # Creates new +Jenkins2API::Endpoint::Node+ instance
     def node
@@ -66,7 +73,10 @@ module Jenkins2API
       yield req if block_given?
 
       req.content_type ||= 'application/x-www-form-urlencoded'
-      response = Net::HTTP.start(req.uri.hostname, req.uri.port) do |http|
+      response = Net::HTTP.start(
+        req.uri.hostname, req.uri.port,
+        use_ssl: req.uri.scheme == 'https'
+      ) do |http|
         http.request(req)
       end
 
@@ -81,7 +91,7 @@ module Jenkins2API
       parts = [@server, URI.escape(path)]
       parts << 'api/json' if response_type == :json
       uri = URI(File.join(parts))
-      uri.query = URI.encode_www_form(opts) if method == :post
+      uri.query = URI.encode_www_form(opts)
 
       case method
       when :get then Net::HTTP::Get
