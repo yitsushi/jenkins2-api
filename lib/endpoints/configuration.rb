@@ -27,7 +27,7 @@ module Jenkins2API
       def safe_restart
         @client.api_request(
           :post,
-          '/updatecenter/saferestart',
+          '/updateCenter/safeRestart',
           :raw
         )
       end
