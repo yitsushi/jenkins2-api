@@ -5,26 +5,23 @@ module Jenkins2API
     # This class contains all the calls to reach
     # Jenkins2 Configuration
     class Configuration < BaseEndpoint
-
+      # list all installed plugin
       def plugin_list
         @client.api_request(:get, '/pluginManager', depth: 10)['plugins']
       end
 
+      # Install a plugin
       def plugin_install(name, short)
-        opts = {
-
-        }
+        json = { name => { default: true } }
         @client.api_request(
           :post,
           '/pluginManager/install',
           :raw,
-
-          "plugin.#{short}.default": 'on',
-          json: {name => {default: true}}.to_json,
-          dynamicLoad: 'Install without restart'
+          json: json.to_json,
+          dynamicLoad: 'Install without restart',
+          :"plugin.#{short}.default" => 'on'
         )
       end
     end
   end
 end
-

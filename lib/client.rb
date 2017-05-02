@@ -74,8 +74,7 @@ module Jenkins2API
 
       req.content_type ||= 'application/x-www-form-urlencoded'
       response = Net::HTTP.start(
-        req.uri.hostname, req.uri.port,
-        use_ssl: req.uri.scheme == 'https'
+        req.uri.hostname, req.uri.port, use_ssl: req.uri.scheme == 'https'
       ) do |http|
         http.request(req)
       end
