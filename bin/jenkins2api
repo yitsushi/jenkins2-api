@@ -34,6 +34,18 @@ module Jenkins2API
         'node <command>',
         'Node related commands'
       )
+      register(
+        Jenkins2API::Command::Plugin,
+        'plugin',
+        'plugin <command>',
+        'Plugins related commands'
+      )
+      register(
+        Jenkins2API::Command::System,
+        'system',
+        'system <command>',
+        'System related commands'
+      )
     end
   end
 end

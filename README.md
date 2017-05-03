@@ -138,6 +138,14 @@ client.configuration.plugin_install(
 client.configuration.safe_restart
 ```
 
+From CLI:
+
+```
+jenkins2api plugin list
+jenkins2api plugin install 'Pipeline: Stage View Plugin' 'pipeline-stage-view'
+jenkins2api system safe-restart
+```
+
 #### Trigger a build
 
 ```
