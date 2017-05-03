@@ -31,6 +31,28 @@ module Jenkins2API
         @client.api_request(:get, "/job/#{name}")['builds']
       end
 
+      # Trigger a build on a specific job
+      #
+      # ==== Params:
+      # +name+:: Name of the job
+      # +parameters+:: Hash with build parameters,
+      #   key => valule pairs
+      # +delay+:: Delay the build in seconds
+      def build(name, parameters = {}, delay = 0)
+        post = { parameter: [] }
+        parameters.each do |key, value|
+          post[:parameter] << { name: key, value: value }
+        end
+
+        @client.api_request(
+          :post,
+          "/job/#{name}/build?delay=#{delay}sec",
+          :raw,
+          json: post.to_json
+        )
+      end
+
+      # Compatibility with jenkins-api gem (for Jenkins1)
       alias get_builds builds
     end
   end
