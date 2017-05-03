@@ -123,3 +123,31 @@ failed_tests.each do |failed|
   puts "  [✘] #{failed['name']} on #{failed['classname']}"
 end
 ```
+
+#### List and Install plugins
+
+```
+p client.configuration.plugin_list
+
+client.configuration.plugin_install(
+  'Blue Ocean Pipeline Editor',  # Plugin name
+  'blueocean-pipeline-editor'    # Plugin ID
+)
+
+# Safe restart our jenkins master when all plugins are installed.
+client.configuration.safe_restart
+```
+
+#### Trigger a build
+
+```
+client.job.build('test-project', { GIT_BRANCH: 'experiment' })
+client.job.build('test-project-clone')
+```
+
+From CLI
+
+```
+jenkins2api job build test-project-clone
+jenkins2api job build test-project --params=GIT_BRANCH:experiment GIT_REPO:customrepo
+```
