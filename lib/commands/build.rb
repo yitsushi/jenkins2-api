@@ -18,6 +18,12 @@ module Jenkins2API
 
         puts slave_name
       end
+
+      desc 'logs JOB_NAME BUILD_ID', 'Get the logs for a specific build'
+      # Retrieve logs for a specific job and join them by newline
+      def logs(name, build_id)
+        puts client.build.logtext_lines(name, build_id).join("\n")
+      end
     end
   end
 end
