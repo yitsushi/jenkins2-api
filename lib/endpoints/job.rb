@@ -31,6 +31,16 @@ module Jenkins2API
         @client.api_request(:get, "/job/#{name}")['builds']
       end
 
+      # Get all available sub-jobs for a specific job
+      #
+      # ==== Params:
+      # +name+:: Name of the Job
+      #
+      # Returns with an array of jobs
+      def jobs(name)
+        @client.api_request(:get, "/job/#{name}")['jobs']
+      end
+
       # Trigger a build on a specific job
       #
       # ==== Params:
