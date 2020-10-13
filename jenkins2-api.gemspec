@@ -21,11 +21,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'thor', '~> 0.19'
 
-  s.add_development_dependency 'rake', '>= 12.0'
+  s.add_development_dependency 'rake', '>= 12.3.3', '~> 12'
   s.add_development_dependency 'rdoc', '>= 5.1'
   s.add_development_dependency 'rspec', '>= 3.5'
   s.add_development_dependency 'webmock', '>= 3.0'
   s.add_development_dependency 'sinatra', '>= 1.4'
   s.add_development_dependency 'rubocop', '>= 0.48'
 end
-

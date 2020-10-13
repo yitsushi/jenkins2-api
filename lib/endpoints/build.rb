@@ -28,7 +28,7 @@ module Jenkins2API
       # +name+:: Name of the Job
       # +build_id+:: ID of the build
       def test_results(name, build_id)
-        @client.api_request(:get, "/job/#{name}/#{build_id}/testReport")
+        @client.api_request(:get, "/job/#{name}/#{build_id}/testReport", :xml)
       end
 
       # Get +console log+ for a specific build as text
